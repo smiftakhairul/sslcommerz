@@ -197,7 +197,7 @@ protected $except = [
             <td>
                 Set primary information.
                 <br><br>
-                Required parameter elements:
+                Required parameter key elements:
                 <ul>
                     <li><b>store_id</b></li>
                     <li><b>store_passwd</b></li>
@@ -208,7 +208,7 @@ protected $except = [
                     <li><b>fail_url</b></li>
                     <li><b>cancel_url</b></li>
                 </ul>
-                Optional parameter elements:
+                Optional parameter key elements:
                 <ul>
                     <li><b>ipn_url</b></li>
                     <li><b>multi_card_name</b></li>
@@ -240,7 +240,7 @@ protected $except = [
             <td>
                 Set customer information.
                 <br><br>
-                Required parameter elements:
+                Required parameter key elements:
                 <ul>
                     <li><b>cus_name</b></li>
                     <li><b>cus_email</b></li>
@@ -251,7 +251,7 @@ protected $except = [
                     <li><b>cus_country</b></li>
                     <li><b>cus_phone</b></li>
                 </ul>
-                Optional parameter elements:
+                Optional parameter key elements:
                 <ul>
                     <li><b>cus_state</b></li>
                     <li><b>cus_fax</b></li>
@@ -277,13 +277,13 @@ protected $except = [
             <td>
                 Set product information.
                 <br><br>
-                Required parameter elements:
+                Required parameter key elements:
                 <ul>
                     <li><b>product_name</b></li>
                     <li><b>product_category</b></li>
                     <li><b>product_profile</b></li>
                 </ul>
-                Optional parameter elements:
+                Optional parameter key elements:
                 <ul>
                     <li><b>cart</b></li>
                     <li><b>product_amount</b></li>
@@ -323,12 +323,12 @@ protected $except = [
             <td>
                 Set shipment information.
                 <br><br>
-                Required parameter elements:
+                Required parameter key elements:
                 <ul>
                     <li><b>shipping_method</b></li>
                     <li><b>num_of_item</b></li>
                 </ul>
-                Optional parameter elements:
+                Optional parameter key elements:
                 <ul>
                     <li><b>ship_name</b></li>
                     <li><b>ship_add1</b></li>
@@ -357,11 +357,11 @@ protected $except = [
             <td>
                 Set EMI information.
                 <br><br>
-                Required parameter elements:
+                Required parameter key elements:
                 <ul>
                     <li><b>emi_option</b></li>
                 </ul>
-                Optional parameter elements:
+                Optional parameter key elements:
                 <ul>
                     <li><b>emi_max_inst_option</b></li>
                     <li><b>emi_selected_inst</b></li>
@@ -389,7 +389,7 @@ protected $except = [
             <td>
                 Set additional information.
                 <br><br>
-                Optional parameter elements:
+                Optional parameter key elements:
                 <ul>
                     <li><b>value_a</b></li>
                     <li><b>value_b</b></li>
