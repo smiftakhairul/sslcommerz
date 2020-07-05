@@ -5,12 +5,12 @@ Official documentation [here](https://developer.sslcommerz.com/).
 
 ## Installation
 ```bash
-composer require smiftakhairul/sslcommerz
+$ composer require smiftakhairul/sslcommerz
 ```
 
 ## Vendor
 ```bash
-php artisan vendor:publish --provider="SSLCZ\SSLCommerz\SSLCommerzServiceProvider"
+$ php artisan vendor:publish --provider="SSLCZ\SSLCommerz\SSLCommerzServiceProvider"
 ```
 A file `sslcommerz.php` will be added to `config` directory after running above command. We need to setup our configuration to `.env` file as follows:
 
@@ -105,7 +105,7 @@ return redirect($response['GatewayPageURL']); // redirect to gateway page url
 
 ### Easy Checkout Integration
 ```javascript
-// View(js)
+// View(js) - Step 1
 (function (window, document) {
     var loader = function () {
         var script = document.createElement("script"), tag = document.getElementsByTagName("script")[0];
@@ -115,7 +115,53 @@ return redirect($response['GatewayPageURL']); // redirect to gateway page url
 
     window.addEventListener ? window.addEventListener("load", loader, false) : window.attachEvent("onload", loader);
 })(window, document);
+
+/*
+Sandbox Script URL: https://sandbox.sslcommerz.com/embed.min.js?
+Live or Production Script URL: https://seamless-epay.sslcommerz.com/embed.min.js?
+ */
 ```
+
+```html
+<!-- View(js) - Step 2 -->
+<button class="your-button-class" id="sslczPayBtn"
+        token="if you have any token validation"
+        postdata="your javascript arrays or objects which requires in backend"
+        order="If you already have the transaction generated for current order"
+        endpoint="{{ 'your-easy-checkout-pay-url' }}"> Pay Now
+</button>
+```
+
+```php
+// Controller
+$sslcommerz = new SSLCommerz();
+$sslcommerz->setPaymentDisplayType('hosted');
+// ---
+
+$response = $sslcommerz->initPayment($sslcommerz);
+echo $sslcommerz->formatCheckoutResponse($response); // show easycheckout pay popup
+```
+
+### Disable CSRF Protection
+Disable `CSRF` protection for the following URL's. 
+- `init-payment-via-ajax` url
+- `success` url
+- `fail` url
+- `cancel` url
+- `ipn` url
+
+Disable them from `VerifyCsrfToken` middleware.
+```php
+// VerifyCsrfToken.php
+protected $except = [
+    '/init-payment-via-ajax', 
+    '/success', 
+    '/cancel', 
+    '/fail', 
+    '/ipn'
+];
+```
+> You are all set!
 
 ## License
 [MIT](https://choosealicense.com/licenses/mit/)
