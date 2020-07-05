@@ -174,12 +174,33 @@ protected $except = [
     </thead>
     <tbody>
         <tr>
-            <td><code>setPrimaryInformation()</code></td>
+            <td><code>getPrimaryInformation()</code></td>
+            <td style="text-align: center"></td>
+            <td>
+                Get primary information such as:
+                <br>
+                <ul>
+                    <li><code>store_id</code></li>
+                    <li><code>store_passwd</code></li>
+                    <li><code>total_amount</code></li>
+                    <li><code>currency</code></li>
+                    <li><code>tran_id</code></li>
+                    <li><code>success_url</code></li>
+                    <li><code>fail_url</code></li>
+                    <li><code>cancel_url</code></li>
+                    <li><code>ipn_url</code></li>
+                    <li><code>multi_card_name</code></li>
+                    <li><code>allowed_bin</code></li>
+                </ul>
+            </td>
+        </tr>
+        <tr>
+            <td><code>setCustomerInformation()</code></td>
             <td style="text-align: center"><span><code>array()</code></span></td>
             <td>
-                Integration Required Parameters.
+                Set primary information.
                 <br><br>
-                Supported elements:
+                Required parameter elements:
                 <ul>
                     <li><code>store_id</code></li>
                     <li><code>store_passwd</code></li>
@@ -190,13 +211,16 @@ protected $except = [
                     <li><code>fail_url</code></li>
                     <li><code>cancel_url</code></li>
                 </ul>
+                Optional parameter elements:
+                <ul>
+                    <li><code>ipn_url</code></li>
+                    <li><code>multi_card_name</code></li>
+                    <li><code>allowed_bin</code></li>
+                </ul>
             </td>
         </tr>
     </tbody>
 </table>
-
-
-
 
 ## License
 [MIT](https://choosealicense.com/licenses/mit/)
