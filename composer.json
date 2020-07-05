@@ -1,0 +1,30 @@
+{
+    "name": "smiftakhairul/sslcommerz",
+    "description": "SSLCommerz Payment Gateway Package for Laravel.",
+    "type": "library",
+    "license": "MIT",
+    "authors": [
+        {
+            "name": "S M Iftakhairul",
+            "email": "s.m.iftakhairul@gmail.com"
+        }
+    ],
+    "minimum-stability": "dev",
+    "require": {
+        "php": "^7.2.5",
+        "laravel/framework": "^7.0",
+        "guzzlehttp/guzzle": "^6.5"
+    },
+    "autoload": {
+        "psr-4": {
+            "SSLCZ\\SSLCommerz\\": "src/"
+        }
+    },
+    "extra": {
+        "laravel": {
+            "providers": [
+                "SSLCZ\\SSLCommerz\\SSLCommerzServiceProvider"
+            ]
+        }
+    }
+}
