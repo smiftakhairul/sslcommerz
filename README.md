@@ -222,7 +222,5 @@ protected $except = [
     </tbody>
 </table>
 
-
-
 ## License
 [MIT](https://choosealicense.com/licenses/mit/)
