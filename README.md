@@ -106,15 +106,7 @@ return redirect($response['GatewayPageURL']); // redirect to gateway page url
 ### Easy Checkout Integration
 ```javascript
 // View(js)
-(function (window, document) {
-	var loader = function () {
-	    var script = document.createElement("script"), tag = document.getElementsByTagName("script")[0];
-	    script.src = "{{ 'Sandbox or Live(Production) Script' }}" + Math.random().toString(36).substring(7);
-	    tag.parentNode.insertBefore(script, tag);
-	};
 
-	window.addEventListener ? window.addEventListener("load", loader, false) : window.attachEvent("onload", loader);
-})(window, document);
 ```
 
 ## License
