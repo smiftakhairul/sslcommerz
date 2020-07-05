@@ -163,5 +163,33 @@ protected $except = [
 ```
 > You are all set!
 
+## Available Methods
+<table>
+    <thead>
+        <tr>
+            <th>Method Name</th>
+            <th>Param Info</th>
+            <th>Description</th>
+        </tr>
+    </thead>
+    <tbody>
+        <tr>
+            <td>`setPrimaryInformation()`</td>
+            <td>
+                `array()`
+                <br>
+                supported elements:
+                <ul>
+                    <li>store_id *</li>
+                </ul>
+            </td>
+            <td>
+                Integration Required Parameters
+            </td>
+        </tr>
+    </tbody>
+</table>
+
+
 ## License
 [MIT](https://choosealicense.com/licenses/mit/)
