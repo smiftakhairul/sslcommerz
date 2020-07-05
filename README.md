@@ -179,19 +179,19 @@ protected $except = [
             <td>
                 Get primary information such as:
                 <br>
-                <ul>
-                    <li><code>store_id</code></li>
-                    <li><code>store_passwd</code></li>
-                    <li><code>total_amount</code></li>
-                    <li><code>currency</code></li>
-                    <li><code>tran_id</code></li>
-                    <li><code>success_url</code></li>
-                    <li><code>fail_url</code></li>
-                    <li><code>cancel_url</code></li>
-                    <li><code>ipn_url</code></li>
-                    <li><code>multi_card_name</code></li>
-                    <li><code>allowed_bin</code></li>
-                </ul>
+                <span>
+                    <span><b>store_id</b></span>,
+                    <span><b>store_passwd</b></span>,
+                    <span><b>total_amount</b></span>,
+                    <span><b>currency</b></span>,
+                    <span><b>tran_id</b></span>,
+                    <span><b>success_url</b></span>,
+                    <span><b>fail_url</b></span>,
+                    <span><b>cancel_url</b></span>,
+                    <span><b>ipn_url</b></span>,
+                    <span><b>multi_card_name</b></span>,
+                    <span><b>allowed_bin</b></span>,
+                </span>
             </td>
         </tr>
         <tr>
@@ -202,25 +202,27 @@ protected $except = [
                 <br><br>
                 Required parameter elements:
                 <ul>
-                    <li><code>store_id</code></li>
-                    <li><code>store_passwd</code></li>
-                    <li><code>total_amount</code></li>
-                    <li><code>currency</code></li>
-                    <li><code>tran_id</code></li>
-                    <li><code>success_url</code></li>
-                    <li><code>fail_url</code></li>
-                    <li><code>cancel_url</code></li>
+                    <li><b>store_id</b></li>
+                    <li><b>store_passwd</b></li>
+                    <li><b>total_amount</b></li>
+                    <li><b>currency</b></li>
+                    <li><b>tran_id</b></li>
+                    <li><b>success_url</b></li>
+                    <li><b>fail_url</b></li>
+                    <li><b>cancel_url</b></li>
                 </ul>
                 Optional parameter elements:
                 <ul>
-                    <li><code>ipn_url</code></li>
-                    <li><code>multi_card_name</code></li>
-                    <li><code>allowed_bin</code></li>
+                    <li><b>ipn_url</b></li>
+                    <li><b>multi_card_name</b></li>
+                    <li><b>allowed_bin</b></li>
                 </ul>
             </td>
         </tr>
     </tbody>
 </table>
+
+
 
 ## License
 [MIT](https://choosealicense.com/licenses/mit/)
