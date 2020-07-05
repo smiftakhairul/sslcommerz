@@ -168,27 +168,34 @@ protected $except = [
     <thead>
         <tr>
             <th>Method Name</th>
-            <th>Param Info</th>
+            <th style="text-align: center">Param Info</th>
             <th>Description</th>
         </tr>
     </thead>
     <tbody>
         <tr>
-            <td>`setPrimaryInformation()`</td>
+            <td><code>setPrimaryInformation()</code></td>
+            <td style="text-align: center"><span><code>array()</code></span></td>
             <td>
-                `array()`
-                <br>
-                supported elements:
+                Integration Required Parameters.
+                <br><br>
+                Individual methods of each supported elements:
                 <ul>
-                    <li>store_id *</li>
+                    <li><code>store_id</code>: <code>getStoreId()</code> & <code>setStoreId(string)</code></li>
+                    <li><code>store_passwd</code>: <code>getStorePassword()</code> & <code>setStorePassword(string)</code></li>
+                    <li><code>total_amount</code>: <code>getTotalAmount()</code> & <code>setTotalAmount(integer or string)</code></li>
+                    <li><code>currency</code>: <code>getCurrency()</code> & <code>setCurrency(string)</code></li>
+                    <li><code>tran_id</code>: <code>getTranId()</code> & <code>setTranId(string)</code></li>
+                    <li><code>success_url</code>: <code>getSuccessUrl()</code> & <code>setSuccessUrl(string)</code></li>
+                    <li><code>fail_url</code>: <code>getFailUrl()</code> & <code>setFailUrl(string)</code></li>
+                    <li><code>cancel_url</code>: <code>getCancelUrl()</code> & <code>setCancelUrl(string)</code></li>
                 </ul>
-            </td>
-            <td>
-                Integration Required Parameters
             </td>
         </tr>
     </tbody>
 </table>
+
+
 
 
 ## License
