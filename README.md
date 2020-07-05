@@ -9,7 +9,7 @@ composer require smiftakhairul/sslcommerz
 ```
 
 ## Vendor
-```bash
+```laravel
 php artisan vendor:publish --provider="SSLCZ\SSLCommerz\SSLCommerzServiceProvider"
 ```
 A file `sslcommerz.php` will be added to `config` directory after running above command. We need to setup our configuration to `.env` file as follows:
