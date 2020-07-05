@@ -192,7 +192,7 @@ protected $except = [
             </td>
         </tr>
         <tr>
-            <td><code>setCustomerInformation()</code></td>
+            <td><code>setPrimaryInformation()</code></td>
             <td style="text-align: center"><span><code>array()</code></span></td>
             <td>
                 Set primary information.
