@@ -187,10 +187,7 @@ protected $except = [
                     <span><b>tran_id</b></span>,
                     <span><b>success_url</b></span>,
                     <span><b>fail_url</b></span>,
-                    <span><b>cancel_url</b></span>,
-                    <span><b>ipn_url</b></span>,
-                    <span><b>multi_card_name</b></span>,
-                    <span><b>allowed_bin</b></span>,
+                    <span><b>cancel_url</b></span> and other optional information.
                 </span>
             </td>
         </tr>
@@ -216,6 +213,188 @@ protected $except = [
                     <li><b>ipn_url</b></li>
                     <li><b>multi_card_name</b></li>
                     <li><b>allowed_bin</b></li>
+                </ul>
+            </td>
+        </tr>
+        <tr>
+            <td><code>getCustomerInformation()</code></td>
+            <td style="text-align: center"></td>
+            <td>
+                Get customer information such as:
+                <br>
+                <span>
+                    <span><b>cus_name</b></span>,
+                    <span><b>cus_email</b></span>,
+                    <span><b>cus_add1</b></span>,
+                    <span><b>cus_add2</b></span>,
+                    <span><b>cus_city</b></span>,
+                    <span><b>cus_postcode</b></span>,
+                    <span><b>cus_country</b></span>,
+                    <span><b>cus_phone</b></span> and other optional information.
+                </span>
+            </td>
+        </tr>
+        <tr>
+            <td><code>setCustomerInformation()</code></td>
+            <td style="text-align: center"><span><code>array()</code></span></td>
+            <td>
+                Set customer information.
+                <br><br>
+                Required parameter elements:
+                <ul>
+                    <li><b>cus_name</b></li>
+                    <li><b>cus_email</b></li>
+                    <li><b>cus_add1</b></li>
+                    <li><b>cus_add2</b></li>
+                    <li><b>cus_city</b></li>
+                    <li><b>cus_postcode</b></li>
+                    <li><b>cus_country</b></li>
+                    <li><b>cus_phone</b></li>
+                </ul>
+                Optional parameter elements:
+                <ul>
+                    <li><b>cus_state</b></li>
+                    <li><b>cus_fax</b></li>
+                </ul>
+            </td>
+        </tr>
+        <tr>
+            <td><code>getProductInformation()</code></td>
+            <td style="text-align: center"></td>
+            <td>
+                Get product information such as:
+                <br>
+                <span>
+                    <span><b>product_name</b></span>,
+                    <span><b>product_category</b></span>,
+                    <span><b>product_profile</b></span> and other optional information.
+                </span>
+            </td>
+        </tr>
+        <tr>
+            <td><code>setProductInformation()</code></td>
+            <td style="text-align: center"><span><code>array()</code></span></td>
+            <td>
+                Set product information.
+                <br><br>
+                Required parameter elements:
+                <ul>
+                    <li><b>product_name</b></li>
+                    <li><b>product_category</b></li>
+                    <li><b>product_profile</b></li>
+                </ul>
+                Optional parameter elements:
+                <ul>
+                    <li><b>cart</b></li>
+                    <li><b>product_amount</b></li>
+                    <li><b>vat</b></li>
+                    <li><b>discount_amount</b></li>
+                    <li><b>convenience_fee</b></li>
+                    <li><b>hours_till_departure</b></li>
+                    <li><b>flight_type</b></li>
+                    <li><b>pnr</b></li>
+                    <li><b>journey_from_to</b></li>
+                    <li><b>third_party_booking</b></li>
+                    <li><b>hotel_name</b></li>
+                    <li><b>length_of_stay</b></li>
+                    <li><b>check_in_time</b></li>
+                    <li><b>hotel_city</b></li>
+                    <li><b>product_type</b></li>
+                    <li><b>topup_number</b></li>
+                    <li><b>country_topup</b></li>
+                </ul>
+            </td>
+        </tr>
+        <tr>
+            <td><code>getShipmentInformation()</code></td>
+            <td style="text-align: center"></td>
+            <td>
+                Get shipment information such as:
+                <br>
+                <span>
+                    <span><b>shipping_method</b></span>,
+                    <span><b>num_of_item</b></span> and other optional information.
+                </span>
+            </td>
+        </tr>
+        <tr>
+            <td><code>setShipmentInformation()</code></td>
+            <td style="text-align: center"><span><code>array()</code></span></td>
+            <td>
+                Set shipment information.
+                <br><br>
+                Required parameter elements:
+                <ul>
+                    <li><b>shipping_method</b></li>
+                    <li><b>num_of_item</b></li>
+                </ul>
+                Optional parameter elements:
+                <ul>
+                    <li><b>ship_name</b></li>
+                    <li><b>ship_add1</b></li>
+                    <li><b>ship_add2</b></li>
+                    <li><b>ship_state</b></li>
+                    <li><b>ship_city</b></li>
+                    <li><b>ship_postcode</b></li>
+                    <li><b>ship_country</b></li>
+                </ul>
+            </td>
+        </tr>
+        <tr>
+            <td><code>getEmiInformation()</code></td>
+            <td style="text-align: center"></td>
+            <td>
+                Get EMI information such as:
+                <br>
+                <span>
+                    <span><b>emi_option</b></span> and other optional information.
+                </span>
+            </td>
+        </tr>
+        <tr>
+            <td><code>setEmiInformation()</code></td>
+            <td style="text-align: center"><span><code>array()</code></span></td>
+            <td>
+                Set EMI information.
+                <br><br>
+                Required parameter elements:
+                <ul>
+                    <li><b>emi_option</b></li>
+                </ul>
+                Optional parameter elements:
+                <ul>
+                    <li><b>emi_max_inst_option</b></li>
+                    <li><b>emi_selected_inst</b></li>
+                    <li><b>emi_allow_only</b></li>
+                </ul>
+            </td>
+        </tr>
+        <tr>
+            <td><code>getAdditionalInformation()</code></td>
+            <td style="text-align: center"></td>
+            <td>
+                Get additional information such as:
+                <br>
+                <span>
+                    <span><b>value_a</b></span>,
+                    <span><b>value_b</b></span>,
+                    <span><b>value_c</b></span>,
+                    <span><b>value_d</b></span>.
+                </span>
+            </td>
+        </tr>
+        <tr>
+            <td><code>setAdditionalInformation()</code></td>
+            <td style="text-align: center"><span><code>array()</code></span></td>
+            <td>
+                Set additional information.
+                <br><br>
+                Optional parameter elements:
+                <ul>
+                    <li><b>value_a</b></li>
+                    <li><b>value_b</b></li>
+                    <li><b>value_c</b></li>
+                    <li><b>value_d</b></li>
                 </ul>
             </td>
         </tr>
