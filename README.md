@@ -179,16 +179,16 @@ protected $except = [
             <td>
                 Integration Required Parameters.
                 <br><br>
-                Individual methods of each supported elements:
+                Supported elements:
                 <ul>
-                    <li><code>store_id</code>: <code>getStoreId()</code> & <code>setStoreId(string)</code></li>
-                    <li><code>store_passwd</code>: <code>getStorePassword()</code> & <code>setStorePassword(string)</code></li>
-                    <li><code>total_amount</code>: <code>getTotalAmount()</code> & <code>setTotalAmount(integer or string)</code></li>
-                    <li><code>currency</code>: <code>getCurrency()</code> & <code>setCurrency(string)</code></li>
-                    <li><code>tran_id</code>: <code>getTranId()</code> & <code>setTranId(string)</code></li>
-                    <li><code>success_url</code>: <code>getSuccessUrl()</code> & <code>setSuccessUrl(string)</code></li>
-                    <li><code>fail_url</code>: <code>getFailUrl()</code> & <code>setFailUrl(string)</code></li>
-                    <li><code>cancel_url</code>: <code>getCancelUrl()</code> & <code>setCancelUrl(string)</code></li>
+                    <li><code>store_id</code></li>
+                    <li><code>store_passwd</code></li>
+                    <li><code>total_amount</code></li>
+                    <li><code>currency</code></li>
+                    <li><code>tran_id</code></li>
+                    <li><code>success_url</code></li>
+                    <li><code>fail_url</code></li>
+                    <li><code>cancel_url</code></li>
                 </ul>
             </td>
         </tr>
