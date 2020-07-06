@@ -192,7 +192,7 @@ protected $except = [
             </td>
         </tr>
         <tr>
-            <td><code>setPrimaryInformation()</code></td>
+            <td><code>setCustomerInformation()</code></td>
             <td style="text-align: center"><span><code>array()</code></span></td>
             <td>
                 Set primary information.
@@ -398,8 +398,31 @@ protected $except = [
                 </ul>
             </td>
         </tr>
+        <tr>
+            <td><code>getApiUrl()</code></td>
+            <td style="text-align: center"></td>
+            <td>Get <b>api_url</b>.</td>
+        </tr>
+        <tr>
+            <td><code>setApiUrl()</code></td>
+            <td style="text-align: center"><span><code>string</code></span></td>
+            <td><code style="background: #CD6155; padding: 2px 4px; border-radius: 2px">Required</code>
+                Set <b>api_url</b>. By default, <b>api_url</b> sets based on <code>IS_PRODUCTION</code> value. If <code>IS_PRODUCTION = true</code>, live api url will be set and for <code>IS_PRODUCTION = false</code> sandbox api url will be set.</td>
+        </tr>
+        <tr>
+            <td><code>isProductionMode()</code></td>
+            <td style="text-align: center"></td>
+            <td>Get <b>production_mode</b>.</td>
+        </tr>
+        <tr>
+            <td><code>setProductionMode()</code></td>
+            <td style="text-align: center"><span><code>boolean</code></span></td>
+            <td><code style="background: #CD6155; padding: 2px 4px; border-radius: 2px">Required</code>
+                Set <b>production_mode</b>. By default, <b>production_mode</b> sets by <code>IS_PRODUCTION</code> value.</td>
+        </tr>
     </tbody>
 </table>
+
 
 ## License
 [MIT](https://choosealicense.com/licenses/mit/)
