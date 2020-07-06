@@ -426,9 +426,128 @@ The response contains status and full information of order.
             <td style="text-align: center"><span><code>boolean</code></span></td>
             <td>Set <b>production_mode</b>. By default, <b>production_mode</b> sets by <code>IS_PRODUCTION</code> value.</td>
         </tr>
+        <tr>
+            <td><code>getPaymentDisplayType()</code></td>
+            <td style="text-align: center"></td>
+            <td>Get payment display type.</td>
+        </tr>
+        <tr>
+            <td><code>setPaymentDisplayType()</code><b>*</b></td>
+            <td style="text-align: center"><span><code>enum('hosted', 'checkout')</code></span></td>
+            <td>Set payment display type. Default value is <b>checkout</b>.</td>
+        </tr>
+        <tr>
+            <td><code>getStoreId()</code></td>
+            <td style="text-align: center"></td>
+            <td>Get SSLCommerz <b>store_id</b>.</td>
+        </tr>
+        <tr>
+            <td><code>setStoreId()</code><b>*</b></td>
+            <td style="text-align: center"><span><code>string</code></span></td>
+            <td>Set SSLCommerz <b>store_id</b>. Default value sets by <code>STORE_ID</code> value.</td>
+        </tr>
+        <tr>
+            <td><code>getStorePassword()</code></td>
+            <td style="text-align: center"></td>
+            <td>Get SSLCommerz <b>store_passwd</b>.</td>
+        </tr>
+        <tr>
+            <td><code>setStorePassword()</code><b>*</b></td>
+            <td style="text-align: center"><span><code>string</code></span></td>
+            <td>Set SSLCommerz <b>store_passwd</b>. Default value sets by <code>STORE_PASSWORD</code> value.</td>
+        </tr>
+        <tr>
+            <td><code>getTotalAmount()</code></td>
+            <td style="text-align: center"></td>
+            <td>Get <b>total_amount</b> of transaction.</td>
+        </tr>
+        <tr>
+            <td><code>setTotalAmount()</code><b>*</b></td>
+            <td style="text-align: center"><span><code>decimal</code></span></td>
+            <td>Set <b>total_amount</b> of transaction. The transaction amount must be from <b>10.00 BDT</b> to <b>500000.00 BDT</b></td>
+        </tr>
+        <tr>
+            <td><code>getCurrency()</code></td>
+            <td style="text-align: center"></td>
+            <td>Get <b>currency</b> type. Example: BDT, USD, EUR, SGD, INR, MYR, etc</td>
+        </tr>
+        <tr>
+            <td><code>setCurrency()</code><b>*</b></td>
+            <td style="text-align: center"><span><code>string</code></span></td>
+            <td>Set <b>currency</b> type.</td>
+        </tr>
+        <tr>
+            <td><code>getTranId()</code></td>
+            <td style="text-align: center"></td>
+            <td>Get unique <b>tran_id</b> to identify order.</td>
+        </tr>
+        <tr>
+            <td><code>setTranId()</code><b>*</b></td>
+            <td style="text-align: center"><span><code>string</code></span></td>
+            <td>Set <b>tran_id</b> to unify your order.</td>
+        </tr>
+        <tr>
+            <td><code>getSuccessUrl()</code></td>
+            <td style="text-align: center"></td>
+            <td>Get callback <b>success_url</b>.</td>
+        </tr>
+        <tr>
+            <td><code>setSuccessUrl()</code><b>*</b></td>
+            <td style="text-align: center"><span><code>string</code></span></td>
+            <td>Set callback <b>success_url</b> where user will redirect after successful payment.</td>
+        </tr>
+        <tr>
+            <td><code>getFailUrl()</code></td>
+            <td style="text-align: center"></td>
+            <td>Get callback <b>fail_url</b>.</td>
+        </tr>
+        <tr>
+            <td><code>setFailUrl()</code><b>*</b></td>
+            <td style="text-align: center"><span><code>string</code></span></td>
+            <td>Set callback <b>fail_url</b> where user will redirect after any failure occurs during payment.</td>
+        </tr>
+        <tr>
+            <td><code>getCancelUrl()</code></td>
+            <td style="text-align: center"></td>
+            <td>Get callback <b>cancel_url</b>.</td>
+        </tr>
+        <tr>
+            <td><code>setCancelUrl()</code><b>*</b></td>
+            <td style="text-align: center"><span><code>string</code></span></td>
+            <td>Set callback <b>cancel_url</b> where user will redirect if user cancels the transaction.</td>
+        </tr>
+        <tr>
+            <td><code>getIpnUrl()</code></td>
+            <td style="text-align: center"></td>
+            <td>Get Instant Payment Notification <b>ipn_url</b>.</td>
+        </tr>
+        <tr>
+            <td><code>setIpnUrl()</code></td>
+            <td style="text-align: center"><span><code>string</code></span></td>
+            <td>Set <b>ipn_url</b>. Enable instant payment notification option so that SSLCommerz can send the transaction's status to ipn_url.</td>
+        </tr>
+        <tr>
+            <td><code>getMultiCardName()</code></td>
+            <td style="text-align: center"></td>
+            <td>Get <b>multi_card_name</b>.</td>
+        </tr>
+        <tr>
+            <td><code>setMultiCardName()</code></td>
+            <td style="text-align: center"><span><code>string</code></span></td>
+            <td>Set <b>multi_card_name</b>. Use it only if gateway list needs to be customized.</td>
+        </tr>
+        <tr>
+            <td><code>getAllowedBin()</code></td>
+            <td style="text-align: center"></td>
+            <td>Get <b>allowed_bin</b>.</td>
+        </tr>
+        <tr>
+            <td><code>setAllowedBin()</code></td>
+            <td style="text-align: center"><span><code>string</code></span></td>
+            <td>Set <b>allowed_bin</b>. Use it only if transaction needs to be controlled.</td>
+        </tr>
     </tbody>
 </table>
-
 
 ## License
 [MIT](https://choosealicense.com/licenses/mit/)
