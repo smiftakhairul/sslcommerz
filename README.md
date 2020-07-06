@@ -404,10 +404,9 @@ protected $except = [
             <td>Get <b>api_url</b>.</td>
         </tr>
         <tr>
-            <td><code>setApiUrl()</code></td>
+            <td><code>setApiUrl()</code><b>*</b></td>
             <td style="text-align: center"><span><code>string</code></span></td>
-            <td><b><code>Required</code></b>
-                Set <b>api_url</b>. By default, <b>api_url</b> sets based on <code>IS_PRODUCTION</code> value. If <code>IS_PRODUCTION = true</code>, live api url will be set and for <code>IS_PRODUCTION = false</code> sandbox api url will be set.</td>
+            <td>Set <b>api_url</b>. By default, <b>api_url</b> sets based on <code>IS_PRODUCTION</code> value. If <code>IS_PRODUCTION = true</code>, live api url will be set and for <code>IS_PRODUCTION = false</code> sandbox api url will be set.</td>
         </tr>
         <tr>
             <td><code>isProductionMode()</code></td>
@@ -415,10 +414,9 @@ protected $except = [
             <td>Get <b>production_mode</b>.</td>
         </tr>
         <tr>
-            <td><code>setProductionMode()</code></td>
+            <td><code>setProductionMode()</code><b>*</b></td>
             <td style="text-align: center"><span><code>boolean</code></span></td>
-            <td><b><code>Required</code></b>
-                Set <b>production_mode</b>. By default, <b>production_mode</b> sets by <code>IS_PRODUCTION</code> value.</td>
+            <td>Set <b>production_mode</b>. By default, <b>production_mode</b> sets by <code>IS_PRODUCTION</code> value.</td>
         </tr>
     </tbody>
 </table>
