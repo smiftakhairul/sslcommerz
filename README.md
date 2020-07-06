@@ -646,6 +646,216 @@ The response contains status and full information of order.
             <td style="text-align: center"><span><code>string</code></span></td>
             <td>Set <b>cus_fax</b>.</td>
         </tr>
+        <tr>
+            <td><code>getProductName()</code></td>
+            <td style="text-align: center"></td>
+            <td>Get <b>product_name</b>.</td>
+        </tr>
+        <tr>
+            <td><code>setProductName()</code><b>*</b></td>
+            <td style="text-align: center"><span><code>string</code></span></td>
+            <td>Set <b>product_name</b>.</td>
+        </tr>
+        <tr>
+            <td><code>getProductCategory()</code></td>
+            <td style="text-align: center"></td>
+            <td>Get <b>product_category</b>.</td>
+        </tr>
+        <tr>
+            <td><code>setProductCategory()</code><b>*</b></td>
+            <td style="text-align: center"><span><code>string</code></span></td>
+            <td>Set <b>product_category</b>.</td>
+        </tr>
+        <tr>
+            <td><code>getProductProfile()</code></td>
+            <td style="text-align: center"></td>
+            <td>Get <b>product_profile</b>.</td>
+        </tr>
+        <tr>
+            <td><code>setProductProfile()</code><b>*</b></td>
+            <td style="text-align: center"><span><code>string</code></span></td>
+            <td>Set <b>product_profile</b>.
+                <br><br>Available keys:
+                <ol>
+                    <li>general</li>
+                    <li>physical-goods</li>
+                    <li>non-physical-goods</li>
+                    <li>airline-tickets</li>
+                    <li>travel-vertical</li>
+                    <li>telecom-vertical</li>
+                </ol>
+            </td>
+        </tr>
+        <tr>
+            <td><code>getProductHoursTillDeparture()</code></td>
+            <td style="text-align: center"></td>
+            <td>Get <b>hours_till_departure</b>.</td>
+        </tr>
+        <tr>
+            <td><code>setProductHoursTillDeparture()</code><b>**</b></td>
+            <td style="text-align: center"><span><code>string</code></span></td>
+            <td>Set <b>hours_till_departure</b>. <b>Required</b> if <code>product_profile</code> is <b>airline-tickets</b></td>
+        </tr>
+        <tr>
+            <td><code>getProductFlightType()</code></td>
+            <td style="text-align: center"></td>
+            <td>Get <b>flight_type</b>.</td>
+        </tr>
+        <tr>
+            <td><code>setProductFlightType()</code><b>**</b></td>
+            <td style="text-align: center"><span><code>string</code></span></td>
+            <td>Set <b>flight_type</b>. <b>Required</b> if <code>product_profile</code> is <b>airline-tickets</b></td>
+        </tr>
+        <tr>
+            <td><code>getProductPnr()</code></td>
+            <td style="text-align: center"></td>
+            <td>Get <b>pnr</b>.</td>
+        </tr>
+        <tr>
+            <td><code>setProductPnr()</code><b>**</b></td>
+            <td style="text-align: center"><span><code>string</code></span></td>
+            <td>Set <b>pnr</b>. <b>Required</b> if <code>product_profile</code> is <b>airline-tickets</b></td>
+        </tr>
+        <tr>
+            <td><code>getProductJourneyFromTo()</code></td>
+            <td style="text-align: center"></td>
+            <td>Get <b>journey_from_to</b>.</td>
+        </tr>
+        <tr>
+            <td><code>setProductJourneyFromTo()</code><b>**</b></td>
+            <td style="text-align: center"><span><code>string</code></span></td>
+            <td>Set <b>journey_from_to</b>. <b>Required</b> if <code>product_profile</code> is <b>airline-tickets</b></td>
+        </tr>
+        <tr>
+            <td><code>getProductThirdPartyBooking()</code></td>
+            <td style="text-align: center"></td>
+            <td>Get <b>third_party_booking</b>.</td>
+        </tr>
+        <tr>
+            <td><code>setProductThirdPartyBooking()</code><b>**</b></td>
+            <td style="text-align: center"><span><code>string</code></span></td>
+            <td>Set <b>third_party_booking</b>. <b>Required</b> if <code>product_profile</code> is <b>airline-tickets</b></td>
+        </tr>
+        <tr>
+            <td><code>getProductHotelName()</code></td>
+            <td style="text-align: center"></td>
+            <td>Get <b>hotel_name</b>.</td>
+        </tr>
+        <tr>
+            <td><code>setProductHotelName()</code><b>**</b></td>
+            <td style="text-align: center"><span><code>string</code></span></td>
+            <td>Set <b>hotel_name</b>. <b>Required</b> if <code>product_profile</code> is <b>travel-vertical</b></td>
+        </tr>
+        <tr>
+            <td><code>getProductLengthOfStay()</code></td>
+            <td style="text-align: center"></td>
+            <td>Get <b>length_of_stay</b>.</td>
+        </tr>
+        <tr>
+            <td><code>setProductLengthOfStay()</code><b>**</b></td>
+            <td style="text-align: center"><span><code>string</code></span></td>
+            <td>Set <b>length_of_stay</b>. <b>Required</b> if <code>product_profile</code> is <b>travel-vertical</b></td>
+        </tr>
+        <tr>
+            <td><code>getProductCheckInTime()</code></td>
+            <td style="text-align: center"></td>
+            <td>Get <b>check_in_time</b>.</td>
+        </tr>
+        <tr>
+            <td><code>setProductCheckInTime()</code><b>**</b></td>
+            <td style="text-align: center"><span><code>string</code></span></td>
+            <td>Set <b>check_in_time</b>. <b>Required</b> if <code>product_profile</code> is <b>travel-vertical</b></td>
+        </tr>
+        <tr>
+            <td><code>getProductHotelCity()</code></td>
+            <td style="text-align: center"></td>
+            <td>Get <b>hotel_city</b>.</td>
+        </tr>
+        <tr>
+            <td><code>setProductHotelCity()</code><b>**</b></td>
+            <td style="text-align: center"><span><code>string</code></span></td>
+            <td>Set <b>hotel_city</b>. <b>Required</b> if <code>product_profile</code> is <b>travel-vertical</b></td>
+        </tr>
+        <tr>
+            <td><code>getProductType()</code></td>
+            <td style="text-align: center"></td>
+            <td>Get <b>product_type</b>.</td>
+        </tr>
+        <tr>
+            <td><code>setProductType()</code><b>**</b></td>
+            <td style="text-align: center"><span><code>string</code></span></td>
+            <td>Set <b>product_type</b>. <b>Required</b> if <code>product_profile</code> is <b>telecom-vertical</b></td>
+        </tr>
+        <tr>
+            <td><code>getProductTopUpNumber()</code></td>
+            <td style="text-align: center"></td>
+            <td>Get <b>topup_number</b>.</td>
+        </tr>
+        <tr>
+            <td><code>setProductTopUpNumber()</code><b>**</b></td>
+            <td style="text-align: center"><span><code>string</code></span></td>
+            <td>Set <b>topup_number</b>. <b>Required</b> if <code>product_profile</code> is <b>telecom-vertical</b></td>
+        </tr>
+        <tr>
+            <td><code>getProductCountryTopUp()</code></td>
+            <td style="text-align: center"></td>
+            <td>Get <b>country_topup</b>.</td>
+        </tr>
+        <tr>
+            <td><code>setProductCountryTopUp()</code><b>**</b></td>
+            <td style="text-align: center"><span><code>string</code></span></td>
+            <td>Set <b>country_topup</b>. <b>Required</b> if <code>product_profile</code> is <b>telecom-vertical</b></td>
+        </tr>
+        <tr>
+            <td><code>getCart()</code></td>
+            <td style="text-align: center"></td>
+            <td>Get <b>cart</b>.</td>
+        </tr>
+        <tr>
+            <td><code>setCart()</code></td>
+            <td style="text-align: center"><span><code>json</code></span></td>
+            <td>Set <b>cart</b>. JSON data with two elements. <b>product</b>: Max 255 characters, <b>quantity</b>: Quantity in numeric value and <b>amount</b>: Decimal (12,2).<br><br>Example:<br><code>[{"product":"DHK TO BRS AC A1","quantity":"1","amount":"200.00"},{"product":"DHK TO BRS AC A2","quantity":"1","amount":"200.00"},{"product":"DHK TO BRS AC A3","quantity":"1","amount":"200.00"},{"product":"DHK TO BRS AC A4","quantity":"2","amount":"200.00"}]</code></td>
+        </tr>
+        <tr>
+            <td><code>getProductAmount()</code></td>
+            <td style="text-align: center"></td>
+            <td>Get <b>product_amount</b>.</td>
+        </tr>
+        <tr>
+            <td><code>setProductAmount()</code></td>
+            <td style="text-align: center"><span><code>decimal</code></span></td>
+            <td>Set <b>product_amount</b>.</td>
+        </tr>
+        <tr>
+            <td><code>getVat()</code></td>
+            <td style="text-align: center"></td>
+            <td>Get <b>vat</b>.</td>
+        </tr>
+        <tr>
+            <td><code>setVat()</code></td>
+            <td style="text-align: center"><span><code>decimal</code></span></td>
+            <td>Set <b>vat</b>.</td>
+        </tr>
+        <tr>
+            <td><code>getDiscountAmount()</code></td>
+            <td style="text-align: center"></td>
+            <td>Get <b>discount_amount</b>.</td>
+        </tr>
+        <tr>
+            <td><code>setDiscountAmount()</code></td>
+            <td style="text-align: center"><span><code>decimal</code></span></td>
+            <td>Set <b>discount_amount</b>.</td>
+        </tr>
+        <tr>
+            <td><code>getConvenienceFee()</code></td>
+            <td style="text-align: center"></td>
+            <td>Get <b>convenience_fee</b>.</td>
+        </tr>
+        <tr>
+            <td><code>setConvenienceFee()</code></td>
+            <td style="text-align: center"><span><code>decimal</code></span></td>
+            <td>Set <b>convenience_fee</b>.</td>
+        </tr>
     </tbody>
 </table>
 

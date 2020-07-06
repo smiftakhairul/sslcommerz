@@ -692,7 +692,7 @@ class SSLCommerzUtil
         return true;
     }
 
-    public function getProductCart()
+    public function getCart()
     {
         return $this->product_information['cart'] ?? [];
     }
@@ -714,7 +714,7 @@ class SSLCommerzUtil
         return true;
     }
 
-    public function getProductVat()
+    public function getVat()
     {
         return $this->product_information['vat'] ?? null;
     }
@@ -725,7 +725,7 @@ class SSLCommerzUtil
         return true;
     }
 
-    public function getProductDiscountAmount()
+    public function getDiscountAmount()
     {
         return $this->product_information['discount_amount'] ?? null;
     }
@@ -736,7 +736,7 @@ class SSLCommerzUtil
         return true;
     }
 
-    public function getProductConvenienceFee()
+    public function getConvenienceFee()
     {
         return $this->product_information['convenience_fee'] ?? null;
     }
