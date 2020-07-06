@@ -694,7 +694,7 @@ The response contains status and full information of order.
         <tr>
             <td><code>setProductHoursTillDeparture()</code><b>**</b></td>
             <td style="text-align: center"><span><code>string</code></span></td>
-            <td>Set <b>hours_till_departure</b>. <b>Required</b> if <code>product_profile</code> is <b>airline-tickets</b></td>
+            <td>Set <b>hours_till_departure</b>. <b>Required</b> if <code>product_profile</code> is <b>airline-tickets</b>.</td>
         </tr>
         <tr>
             <td><code>getProductFlightType()</code></td>
@@ -704,7 +704,7 @@ The response contains status and full information of order.
         <tr>
             <td><code>setProductFlightType()</code><b>**</b></td>
             <td style="text-align: center"><span><code>string</code></span></td>
-            <td>Set <b>flight_type</b>. <b>Required</b> if <code>product_profile</code> is <b>airline-tickets</b></td>
+            <td>Set <b>flight_type</b>. <b>Required</b> if <code>product_profile</code> is <b>airline-tickets</b>.</td>
         </tr>
         <tr>
             <td><code>getProductPnr()</code></td>
@@ -714,7 +714,7 @@ The response contains status and full information of order.
         <tr>
             <td><code>setProductPnr()</code><b>**</b></td>
             <td style="text-align: center"><span><code>string</code></span></td>
-            <td>Set <b>pnr</b>. <b>Required</b> if <code>product_profile</code> is <b>airline-tickets</b></td>
+            <td>Set <b>pnr</b>. <b>Required</b> if <code>product_profile</code> is <b>airline-tickets</b>.</td>
         </tr>
         <tr>
             <td><code>getProductJourneyFromTo()</code></td>
@@ -724,7 +724,7 @@ The response contains status and full information of order.
         <tr>
             <td><code>setProductJourneyFromTo()</code><b>**</b></td>
             <td style="text-align: center"><span><code>string</code></span></td>
-            <td>Set <b>journey_from_to</b>. <b>Required</b> if <code>product_profile</code> is <b>airline-tickets</b></td>
+            <td>Set <b>journey_from_to</b>. <b>Required</b> if <code>product_profile</code> is <b>airline-tickets</b>.</td>
         </tr>
         <tr>
             <td><code>getProductThirdPartyBooking()</code></td>
@@ -734,7 +734,7 @@ The response contains status and full information of order.
         <tr>
             <td><code>setProductThirdPartyBooking()</code><b>**</b></td>
             <td style="text-align: center"><span><code>string</code></span></td>
-            <td>Set <b>third_party_booking</b>. <b>Required</b> if <code>product_profile</code> is <b>airline-tickets</b></td>
+            <td>Set <b>third_party_booking</b>. <b>Required</b> if <code>product_profile</code> is <b>airline-tickets</b>.</td>
         </tr>
         <tr>
             <td><code>getProductHotelName()</code></td>
@@ -744,7 +744,7 @@ The response contains status and full information of order.
         <tr>
             <td><code>setProductHotelName()</code><b>**</b></td>
             <td style="text-align: center"><span><code>string</code></span></td>
-            <td>Set <b>hotel_name</b>. <b>Required</b> if <code>product_profile</code> is <b>travel-vertical</b></td>
+            <td>Set <b>hotel_name</b>. <b>Required</b> if <code>product_profile</code> is <b>travel-vertical</b>.</td>
         </tr>
         <tr>
             <td><code>getProductLengthOfStay()</code></td>
@@ -754,7 +754,7 @@ The response contains status and full information of order.
         <tr>
             <td><code>setProductLengthOfStay()</code><b>**</b></td>
             <td style="text-align: center"><span><code>string</code></span></td>
-            <td>Set <b>length_of_stay</b>. <b>Required</b> if <code>product_profile</code> is <b>travel-vertical</b></td>
+            <td>Set <b>length_of_stay</b>. <b>Required</b> if <code>product_profile</code> is <b>travel-vertical</b>.</td>
         </tr>
         <tr>
             <td><code>getProductCheckInTime()</code></td>
@@ -764,7 +764,7 @@ The response contains status and full information of order.
         <tr>
             <td><code>setProductCheckInTime()</code><b>**</b></td>
             <td style="text-align: center"><span><code>string</code></span></td>
-            <td>Set <b>check_in_time</b>. <b>Required</b> if <code>product_profile</code> is <b>travel-vertical</b></td>
+            <td>Set <b>check_in_time</b>. <b>Required</b> if <code>product_profile</code> is <b>travel-vertical</b>.</td>
         </tr>
         <tr>
             <td><code>getProductHotelCity()</code></td>
@@ -774,7 +774,7 @@ The response contains status and full information of order.
         <tr>
             <td><code>setProductHotelCity()</code><b>**</b></td>
             <td style="text-align: center"><span><code>string</code></span></td>
-            <td>Set <b>hotel_city</b>. <b>Required</b> if <code>product_profile</code> is <b>travel-vertical</b></td>
+            <td>Set <b>hotel_city</b>. <b>Required</b> if <code>product_profile</code> is <b>travel-vertical</b>.</td>
         </tr>
         <tr>
             <td><code>getProductType()</code></td>
@@ -784,7 +784,7 @@ The response contains status and full information of order.
         <tr>
             <td><code>setProductType()</code><b>**</b></td>
             <td style="text-align: center"><span><code>string</code></span></td>
-            <td>Set <b>product_type</b>. <b>Required</b> if <code>product_profile</code> is <b>telecom-vertical</b></td>
+            <td>Set <b>product_type</b>. <b>Required</b> if <code>product_profile</code> is <b>telecom-vertical</b>.</td>
         </tr>
         <tr>
             <td><code>getProductTopUpNumber()</code></td>
@@ -794,7 +794,7 @@ The response contains status and full information of order.
         <tr>
             <td><code>setProductTopUpNumber()</code><b>**</b></td>
             <td style="text-align: center"><span><code>string</code></span></td>
-            <td>Set <b>topup_number</b>. <b>Required</b> if <code>product_profile</code> is <b>telecom-vertical</b></td>
+            <td>Set <b>topup_number</b>. <b>Required</b> if <code>product_profile</code> is <b>telecom-vertical</b>.</td>
         </tr>
         <tr>
             <td><code>getProductCountryTopUp()</code></td>
@@ -804,7 +804,7 @@ The response contains status and full information of order.
         <tr>
             <td><code>setProductCountryTopUp()</code><b>**</b></td>
             <td style="text-align: center"><span><code>string</code></span></td>
-            <td>Set <b>country_topup</b>. <b>Required</b> if <code>product_profile</code> is <b>telecom-vertical</b></td>
+            <td>Set <b>country_topup</b>. <b>Required</b> if <code>product_profile</code> is <b>telecom-vertical</b>.</td>
         </tr>
         <tr>
             <td><code>getCart()</code></td>
@@ -856,8 +856,180 @@ The response contains status and full information of order.
             <td style="text-align: center"><span><code>decimal</code></span></td>
             <td>Set <b>convenience_fee</b>.</td>
         </tr>
+        <tr>
+            <td><code>getShippingMethod()</code></td>
+            <td style="text-align: center"></td>
+            <td>Get <b>shipping_method</b> of the order.</td>
+        </tr>
+        <tr>
+            <td><code>setShippingMethod()</code><b>*</b></td>
+            <td style="text-align: center"><span><code>string</code></span></td>
+            <td>Set <b>shipping_method</b> of the order. Example: YES or NO or Courier.</td>
+        </tr>
+        <tr>
+            <td><code>getShippingItemNumber()</code></td>
+            <td style="text-align: center"></td>
+            <td>Get <b>num_of_item</b> of product.</td>
+        </tr>
+        <tr>
+            <td><code>setShippingItemNumber()</code><b>*</b></td>
+            <td style="text-align: center"><span><code>integer</code></span></td>
+            <td>Set <b>num_of_item</b> of product will be shipped.</td>
+        </tr>
+        <tr>
+            <td><code>getShippingName()</code></td>
+            <td style="text-align: center"></td>
+            <td>Get <b>ship_name</b> of address.</td>
+        </tr>
+        <tr>
+            <td><code>setShippingName()</code><b>**</b></td>
+            <td style="text-align: center"><span><code>string</code></span></td>
+            <td>Set <b>ship_name</b> of address. <b>Required</b> if <code>shipping_method</code> is <b>YES</b>.</td>
+        </tr>
+        <tr>
+            <td><code>getShippingAddress1()</code></td>
+            <td style="text-align: center"></td>
+            <td>Get <b>ship_add1</b>.</td>
+        </tr>
+        <tr>
+            <td><code>setShippingAddress1()</code><b>**</b></td>
+            <td style="text-align: center"><span><code>string</code></span></td>
+            <td>Set <b>ship_add1</b>. <b>Required</b> if <code>shipping_method</code> is <b>YES</b>.</td>
+        </tr>
+        <tr>
+            <td><code>getShippingAddress2()</code></td>
+            <td style="text-align: center"></td>
+            <td>Get <b>ship_add2</b>.</td>
+        </tr>
+        <tr>
+            <td><code>setShippingAddress2()</code></td>
+            <td style="text-align: center"><span><code>string</code></span></td>
+            <td>Set <b>ship_add2</b>.</td>
+        </tr>
+        <tr>
+            <td><code>getShippingCity()</code></td>
+            <td style="text-align: center"></td>
+            <td>Get <b>ship_city</b>.</td>
+        </tr>
+        <tr>
+            <td><code>setShippingCity()</code><b>**</b></td>
+            <td style="text-align: center"><span><code>string</code></span></td>
+            <td>Set <b>ship_city</b>. <b>Required</b> if <code>shipping_method</code> is <b>YES</b>.</td>
+        </tr>
+        <tr>
+            <td><code>getShippingState()</code></td>
+            <td style="text-align: center"></td>
+            <td>Get <b>ship_state</b>.</td>
+        </tr>
+        <tr>
+            <td><code>setShippingState()</code></td>
+            <td style="text-align: center"><span><code>string</code></span></td>
+            <td>Set <b>ship_state</b>.</td>
+        </tr>
+        <tr>
+            <td><code>getShippingPostCode()</code></td>
+            <td style="text-align: center"></td>
+            <td>Get <b>ship_postcode</b>.</td>
+        </tr>
+        <tr>
+            <td><code>setShippingPostCode()</code><b>**</b></td>
+            <td style="text-align: center"><span><code>string</code></span></td>
+            <td>Set <b>ship_postcode</b>. <b>Required</b> if <code>shipping_method</code> is <b>YES</b>.</td>
+        </tr>
+        <tr>
+            <td><code>getShippingCountry()</code></td>
+            <td style="text-align: center"></td>
+            <td>Get <b>ship_country</b>.</td>
+        </tr>
+        <tr>
+            <td><code>setShippingCountry()</code><b>**</b></td>
+            <td style="text-align: center"><span><code>string</code></span></td>
+            <td>Set <b>ship_country</b>. <b>Required</b> if <code>shipping_method</code> is <b>YES</b>.</td>
+        </tr>
+        <tr>
+            <td><code>getEmiOption()</code></td>
+            <td style="text-align: center"></td>
+            <td>Get <b>emi_option</b>.</td>
+        </tr>
+        <tr>
+            <td><code>setEmiOption()</code><b>*</b></td>
+            <td style="text-align: center"><span><code>integer</code></span></td>
+            <td>Set <b>emi_option</b>. Value must be 1 or 0.</td>
+        </tr>
+        <tr>
+            <td><code>getEmiMaxInstOption()</code></td>
+            <td style="text-align: center"></td>
+            <td>Get <b>emi_max_inst_option</b>.</td>
+        </tr>
+        <tr>
+            <td><code>setEmiMaxInstOption()</code></td>
+            <td style="text-align: center"><span><code>integer</code></span></td>
+            <td>Set <b>emi_max_inst_option</b>.</td>
+        </tr>
+        <tr>
+            <td><code>getEmiSelectedInst()</code></td>
+            <td style="text-align: center"></td>
+            <td>Get <b>emi_selected_inst</b>.</td>
+        </tr>
+        <tr>
+            <td><code>setEmiSelectedInst()</code></td>
+            <td style="text-align: center"><span><code>integer</code></span></td>
+            <td>Set <b>emi_selected_inst</b>.</td>
+        </tr>
+        <tr>
+            <td><code>getEmiAllowOnly()</code></td>
+            <td style="text-align: center"></td>
+            <td>Get <b>emi_allow_only</b>.</td>
+        </tr>
+        <tr>
+            <td><code>setEmiAllowOnly()</code></td>
+            <td style="text-align: center"><span><code>integer</code></span></td>
+            <td>Set <b>emi_allow_only</b>. Value must be 1 or 0. This parameter depends on <b>emi_option</b> and <b>emi_selected_inst</b></td>
+        </tr>
+        <tr>
+            <td><code>getAdditionalValueA()</code></td>
+            <td style="text-align: center"></td>
+            <td>Get <b>value_a</b>.</td>
+        </tr>
+        <tr>
+            <td><code>setAdditionalValueA()</code></td>
+            <td style="text-align: center"><span><code>string</code></span></td>
+            <td>Set <b>value_a</b>.</td>
+        </tr>
+        <tr>
+            <td><code>getAdditionalValueB()</code></td>
+            <td style="text-align: center"></td>
+            <td>Get <b>value_b</b>.</td>
+        </tr>
+        <tr>
+            <td><code>setAdditionalValueB()</code></td>
+            <td style="text-align: center"><span><code>string</code></span></td>
+            <td>Set <b>value_b</b>.</td>
+        </tr>
+        <tr>
+            <td><code>getAdditionalValueC()</code></td>
+            <td style="text-align: center"></td>
+            <td>Get <b>value_c</b>.</td>
+        </tr>
+        <tr>
+            <td><code>setAdditionalValueC()</code></td>
+            <td style="text-align: center"><span><code>string</code></span></td>
+            <td>Set <b>value_c</b>.</td>
+        </tr>
+        <tr>
+            <td><code>getAdditionalValueD()</code></td>
+            <td style="text-align: center"></td>
+            <td>Get <b>value_d</b>.</td>
+        </tr>
+        <tr>
+            <td><code>setAdditionalValueD()</code></td>
+            <td style="text-align: center"><span><code>string</code></span></td>
+            <td>Set <b>value_d</b>.</td>
+        </tr>
     </tbody>
 </table>
+
+`*` = **required** and `**` = **Dependently Required**.
 
 ## License
 [MIT](https://choosealicense.com/licenses/mit/)
