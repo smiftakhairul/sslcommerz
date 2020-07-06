@@ -1029,7 +1029,7 @@ The response contains status and full information of order.
     </tbody>
 </table>
 
-`*` = **required** and `**` = **Dependently Required**.
+`*` = **Required** and `**` = **Dependently Required**.
 
 ## License
 [MIT](https://choosealicense.com/licenses/mit/)
