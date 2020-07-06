@@ -161,6 +161,14 @@ protected $except = [
     '/ipn'
 ];
 ```
+
+### Validate Order
+Validate order from **success**, **fail**, **cancel** or **ipn** url.
+```php
+$sslcommerz = new SSLCommerz();
+$response = $sslcommerz->orderValidate($request->all());
+```
+The response contains status and full information of order.
 > You are all set!
 
 ## Available Methods
