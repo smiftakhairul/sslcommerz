@@ -546,6 +546,106 @@ The response contains status and full information of order.
             <td style="text-align: center"><span><code>string</code></span></td>
             <td>Set <b>allowed_bin</b>. Use it only if transaction needs to be controlled.</td>
         </tr>
+        <tr>
+            <td><code>getCustomerName()</code></td>
+            <td style="text-align: center"></td>
+            <td>Get <b>cus_name</b>.</td>
+        </tr>
+        <tr>
+            <td><code>setCustomerName()</code><b>*</b></td>
+            <td style="text-align: center"><span><code>string</code></span></td>
+            <td>Set <b>cus_name</b>.</td>
+        </tr>
+        <tr>
+            <td><code>getCustomerEmail()</code></td>
+            <td style="text-align: center"></td>
+            <td>Get <b>cus_email</b>.</td>
+        </tr>
+        <tr>
+            <td><code>setCustomerEmail()</code><b>*</b></td>
+            <td style="text-align: center"><span><code>string</code></span></td>
+            <td>Set <b>cus_email</b>.</td>
+        </tr>
+        <tr>
+            <td><code>getCustomerAddress1()</code></td>
+            <td style="text-align: center"></td>
+            <td>Get <b>cus_add1</b>.</td>
+        </tr>
+        <tr>
+            <td><code>setCustomerAddress1()</code><b>*</b></td>
+            <td style="text-align: center"><span><code>string</code></span></td>
+            <td>Set <b>cus_add1</b>.</td>
+        </tr>
+        <tr>
+            <td><code>getCustomerAddress2()</code></td>
+            <td style="text-align: center"></td>
+            <td>Get <b>cus_add2</b>.</td>
+        </tr>
+        <tr>
+            <td><code>setCustomerAddress2()</code></td>
+            <td style="text-align: center"><span><code>string</code></span></td>
+            <td>Set <b>cus_add2</b>.</td>
+        </tr>
+        <tr>
+            <td><code>getCustomerCity()</code></td>
+            <td style="text-align: center"></td>
+            <td>Get <b>cus_city</b>.</td>
+        </tr>
+        <tr>
+            <td><code>setCustomerCity()</code><b>*</b></td>
+            <td style="text-align: center"><span><code>string</code></span></td>
+            <td>Set <b>cus_city</b>.</td>
+        </tr>
+        <tr>
+            <td><code>getCustomerState()</code></td>
+            <td style="text-align: center"></td>
+            <td>Get <b>cus_state</b>.</td>
+        </tr>
+        <tr>
+            <td><code>setCustomerState()</code></td>
+            <td style="text-align: center"><span><code>string</code></span></td>
+            <td>Set <b>cus_state</b>.</td>
+        </tr>
+        <tr>
+            <td><code>getCustomerPostCode()</code></td>
+            <td style="text-align: center"></td>
+            <td>Get <b>cus_postcode</b>.</td>
+        </tr>
+        <tr>
+            <td><code>setCustomerPostCode()</code><b>*</b></td>
+            <td style="text-align: center"><span><code>string</code></span></td>
+            <td>Set <b>cus_postcode</b>.</td>
+        </tr>
+        <tr>
+            <td><code>getCustomerCountry()</code></td>
+            <td style="text-align: center"></td>
+            <td>Get <b>cus_country</b>.</td>
+        </tr>
+        <tr>
+            <td><code>setCustomerCountry()</code><b>*</b></td>
+            <td style="text-align: center"><span><code>string</code></span></td>
+            <td>Set <b>cus_country</b>.</td>
+        </tr>
+        <tr>
+            <td><code>getCustomerPhone()</code></td>
+            <td style="text-align: center"></td>
+            <td>Get <b>cus_phone</b>.</td>
+        </tr>
+        <tr>
+            <td><code>setCustomerPhone()</code><b>*</b></td>
+            <td style="text-align: center"><span><code>string</code></span></td>
+            <td>Set <b>cus_phone</b>.</td>
+        </tr>
+        <tr>
+            <td><code>getCustomerFax()</code></td>
+            <td style="text-align: center"></td>
+            <td>Get <b>cus_fax</b>.</td>
+        </tr>
+        <tr>
+            <td><code>setCustomerFax()</code></td>
+            <td style="text-align: center"><span><code>string</code></span></td>
+            <td>Set <b>cus_fax</b>.</td>
+        </tr>
     </tbody>
 </table>
 
