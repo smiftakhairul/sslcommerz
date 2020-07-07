@@ -135,7 +135,7 @@ Live or Production Script URL: https://seamless-epay.sslcommerz.com/embed.min.js
 ```php
 // Controller
 $sslcommerz = new SSLCommerz();
-$sslcommerz->setPaymentDisplayType('hosted');
+$sslcommerz->setPaymentDisplayType('checkout');
 // ---
 
 $response = $sslcommerz->initPayment($sslcommerz);
