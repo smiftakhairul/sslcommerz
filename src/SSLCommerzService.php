@@ -53,43 +53,9 @@ trait SSLCommerzService
         return $format_response;
     }
 
-    public function hash_verify(array $data)
-    {
-        if (empty($data)
-            || empty($data['store_password'])
-            || empty($data['verify_sign'])
-            || empty($data['verify_key'])) {
-            return 'Invalid post request data';
-        }
-
-        $new_data = [];
-        $predefined_keys = explode(',', $data['verify_key']);
-
-        if (!empty($predefined_keys)) {
-            foreach ($predefined_keys as $value) {
-                $new_data[$value] = $data[$value];
-            }
-        }
-
-        $new_data['store_passwd'] = md5($data['store_password']);
-        ksort($new_data);
-
-        $hash_string = null;
-        foreach ($new_data as $key => $value) {
-            $hash_string .= $key . '=' . ($value) . '&';
-        }
-        $hash_string = rtrim($hash_string, '&');
-
-        return (md5($hash_string) === $data['verify_sign']);
-    }
-
     public function validateOrderParams(array $data)
     {
-        if (empty($data)
-            || empty($data['tran_id'])
-            || empty($data['currency'])
-            || empty($data['amount'])
-            || (!empty($data['amount']) && $data['amount'] <= 0)) {
+        if (empty($data) || empty($data['val_id'])) {
             return false;
         }
         return true;
@@ -97,57 +63,15 @@ trait SSLCommerzService
 
     public function orderValidateApiRequest($data)
     {
-        $val_id = urlencode($data['val_id']);
-        $store_id = urlencode($data['store_id']);
-        $store_passwd = urlencode($data['store_password']);
-        $api_domain = $this->isProductionMode()
-            ? $this->config['api_domain']['production'] : $this->config['api_domain']['sandbox'];
-        $requested_url = $api_domain . $this->config['api_url']['order_validate'];
-        $requested_url .= '?val_id=' . $val_id . '&store_id=' . $store_id . '&store_passwd=' . $store_passwd . '&v=1&format=json';
+        $val_id = $data['val_id'];
+        $store_id = $data['store_id'];
+        $store_passwd = $data['store_password'];
+        $req_v = $data['v'];
+        $req_format = $data['format'];
+        $requested_url = $this->getOrderValidateApiUrl();
+        $requested_url .= '?val_id=' . $val_id . '&store_id=' . $store_id . '&store_passwd=' . $store_passwd . '&v=' . $req_v . '&format=' . $req_format;
         $response = Http::get($requested_url);
 
-        return $response;
-    }
-
-    public function orderValidateApiResponseValidate($response, $data)
-    {
-        $result = json_decode($response->body());
-
-        if ($result->status == 'VALID' || $result->status == 'VALIDATED') {
-            if ($data['currency'] == 'BDT') {
-                if (trim($data['tran_id']) == trim($result->tran_id)
-                    && (abs($data['amount'] - $result->amount) < 1)
-                    && trim($data['currency']) == trim('BDT')) {
-                    return $this->response = [
-                        'status' => 'success',
-                        'message' => 'Successful transaction'
-                    ];
-                } else {
-                    return $this->response = [
-                        'status' => 'fail',
-                        'message' => 'Data has been tempered'
-                    ];
-                }
-            } else {
-                if (trim($data['tran_id']) == trim($result->tran_id)
-                    && (abs($data['amount'] - $result->currency_amount) < 1)
-                    && trim($data['currency']) == trim($result->currency_type)) {
-                    return $this->response = [
-                        'status' => 'success',
-                        'message' => 'Successful transaction'
-                    ];
-                } else {
-                    return $this->response = [
-                        'status' => 'fail',
-                        'message' => 'Data has been tempered'
-                    ];
-                }
-            }
-        } else {
-            return $this->response = [
-                'status' => 'fail',
-                'message' => 'Failed Transaction'
-            ];
-        }
+        return $response->body();
     }
 }

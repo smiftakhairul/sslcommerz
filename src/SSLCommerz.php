@@ -11,14 +11,17 @@ class SSLCommerz extends SSLCommerzUtil
 
     public function __construct($config = [])
     {
-        $this->config = config('sslcommerz');
-        $this->primary['store_id'] = !empty($config['store_id']) ? $config['store_id'] : $this->config['store_id'];
-        $this->primary['store_password'] = !empty($config['store_password']) ? $config['store_password'] : $this->config['store_password'];
-        $this->is_production = !empty($config['is_production']) ? $config['is_production'] : $this->config['is_production'];
-        $this->api_url = $this->is_production
-            ? $this->config['api_domain']['production'] . $this->config['api_url']['init_payment']
-            : $this->config['api_domain']['sandbox'] . $this->config['api_url']['init_payment'];
-        $this->payment_display_type = 'checkout';
+        $this->config = config(SSLCommerzEnum::$_CONFIG);
+        $this->primary[SSLCommerzEnum::$_STORE_ID] = !empty($config[SSLCommerzEnum::$_STORE_ID])
+            ? $config[SSLCommerzEnum::$_STORE_ID] : $this->config[SSLCommerzEnum::$_STORE_ID];
+        $this->primary[SSLCommerzEnum::$_STORE_PASSWORD] = !empty($config[SSLCommerzEnum::$_STORE_PASSWORD])
+            ? $config[SSLCommerzEnum::$_STORE_PASSWORD] : $this->config[SSLCommerzEnum::$_STORE_PASSWORD];
+        $this->is_production = !empty($config[SSLCommerzEnum::$_IS_PRODUCTION])
+            ? $config[SSLCommerzEnum::$_IS_PRODUCTION] : $this->config[SSLCommerzEnum::$_IS_PRODUCTION];
+        $this->api_env = $this->is_production ? SSLCommerzEnum::$_ENV_PRODUCTION : SSLCommerzEnum::$_ENV_SANDBOX;
+        $this->api_domain = $this->config[SSLCommerzEnum::$_API_DOMAIN][$this->api_env];
+        $this->triggerUpdateApiUrls();
+        $this->payment_display_type = SSLCommerzEnum::$_PAYMENT_DISPLAY_HOSTED;
         $this->response = null;
     }
 
@@ -78,18 +81,7 @@ class SSLCommerz extends SSLCommerzUtil
 
 //        Make API Request
         $response = $this->initPaymentApiRequest($post_data);
-//        $formattedResponse = $this->initPaymentApiResponseFormat($response);
-//
-//        if ($data->payment_display_type == 'checkout') {
-//            echo $formattedResponse;
-//        } else {
-//            if (isset($formattedResponse['GatewayPageURL']) && !empty($formattedResponse['GatewayPageURL'])) {
-//                $this->redirect($formattedResponse['GatewayPageURL']);
-//            } else {
-//                $error_message = "No redirect URL found!";
-//                return $error_message;
-//            }
-//        }
+
         return json_decode($response, true);
     }
 
@@ -97,31 +89,21 @@ class SSLCommerz extends SSLCommerzUtil
     {
         if (!$this->validateOrderParams($data)) {
             return $this->response = [
-                'status' => 'fail',
+                'status' => 'FAIL',
                 'message' => 'Please provide valid transaction ID or post request data'
             ];
         }
 
-        $data['store_id'] = $this->getStoreId();
-        $data['store_password'] = $this->getStorePassword();
+        $data['store_id'] = isset($data['store_id']) && !empty($data['store_id'])
+            ? $data['store_id'] : $this->getStoreId();
+        $data['store_password'] = isset($data['store_password']) && !empty($data['store_password'])
+            ? $data['store_password'] : $this->getStorePassword();
+        $data['v'] = (isset($data['v']) && !empty($data['v'])) ? $data['v'] : '1';
+        $data['format'] = (isset($data['format']) && !empty($data['format'])) ? $data['format'] : 'json';
 
-        if ($this->hash_verify($data)) {
-            $response = $this->orderValidateApiRequest($data);
+        $response = $this->orderValidateApiRequest($data);
 
-            if ($response->status() === 200 && $response->ok() && $response->successful()) {
-                return $this->orderValidateApiResponseValidate($response, $data);
-            } else {
-                return $this->response = [
-                    'status' => 'fail',
-                    'message' => 'Failed to connect with SSLCommerz'
-                ];
-            }
-        } else {
-            return $this->response = [
-                'status' => 'fail',
-                'message' => 'Hash validation failed'
-            ];
-        }
+        return json_decode($response, true);
     }
 
     public function formatCheckoutResponse($response)

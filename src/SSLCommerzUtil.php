@@ -6,6 +6,7 @@ use Exception;
 
 class SSLCommerzUtil
 {
+    use SSLCommerzEnum;
     use SSLCommerzRequestValidation;
 
     protected $config = [];
@@ -20,6 +21,12 @@ class SSLCommerzUtil
     protected $is_production = false;
     protected $tran_id = null;
     protected $response;
+    protected $api_domain = null;
+    protected $trans_status_api_url = null;
+    protected $order_validate_api_url = null;
+    protected $refund_payment_api_url = null;
+    protected $refund_status_api_url = null;
+    protected $api_env = null;
 
     public function getApiUrl()
     {
@@ -51,11 +58,8 @@ class SSLCommerzUtil
     public function setProductionMode(bool $is_production)
     {
         $this->is_production = $is_production;
-        $this->setApiUrl(
-            $is_production
-                ? $this->config['api_domain']['production'] . $this->config['api_url']['init_payment']
-                : $this->config['api_domain']['sandbox'] . $this->config['api_url']['init_payment']
-        );
+        $this->api_env = $this->is_production ? SSLCommerzEnum::$_ENV_PRODUCTION : SSLCommerzEnum::$_ENV_SANDBOX;
+        $this->setApiEnvironment($this->api_env);
         return true;
     }
 
@@ -808,5 +812,82 @@ class SSLCommerzUtil
     {
         $this->additional_information['value_d'] = $value;
         return true;
+    }
+
+//    v2
+    public function getApiEnvironment()
+    {
+        return $this->api_env;
+    }
+
+    public function setApiEnvironment(string $environment)
+    {
+        if ($environment == SSLCommerzEnum::$_ENV_SANDBOX || $environment == SSLCommerzEnum::$_ENV_PRODUCTION) {
+            $this->api_env = $environment;
+            $this->api_domain = $this->config[SSLCommerzEnum::$_API_DOMAIN][$this->api_env];
+            $this->triggerUpdateApiUrls();
+            return true;
+        }
+        return false;
+    }
+
+    public function getApiDomain()
+    {
+        return $this->api_domain;
+    }
+
+    public function getTransactionStatusApiUrl()
+    {
+        return $this->trans_status_api_url;
+    }
+
+    public function setTransactionStatusApiUrl(string $url)
+    {
+        $this->trans_status_api_url = $url;
+        return true;
+    }
+
+    public function getOrderValidateApiUrl()
+    {
+        return $this->order_validate_api_url;
+    }
+
+    public function setOrderValidateApiUrl(string $url)
+    {
+        $this->order_validate_api_url = $url;
+        return true;
+    }
+
+    public function getRefundPaymentApiUrl()
+    {
+        return $this->refund_payment_api_url;
+    }
+
+    public function setRefundPaymentApiUrl(string $url)
+    {
+        $this->refund_payment_api_url = $url;
+        return true;
+    }
+
+    public function getRefundStatusApiUrl()
+    {
+        return $this->refund_status_api_url;
+    }
+
+    public function setRefundStatusApiUrl(string $url)
+    {
+        $this->refund_status_api_url = $url;
+        return true;
+    }
+
+
+//    private utils
+    protected function triggerUpdateApiUrls()
+    {
+        $this->api_url = $this->api_domain . $this->config[SSLCommerzEnum::$_API_URL][SSLCommerzEnum::$_API_INIT_PAYMENT];
+        $this->trans_status_api_url = $this->api_domain . $this->config[SSLCommerzEnum::$_API_URL][SSLCommerzEnum::$_API_TRANSACTION_STATUS];
+        $this->order_validate_api_url = $this->api_domain . $this->config[SSLCommerzEnum::$_API_URL][SSLCommerzEnum::$_API_ORDER_VALIDATE];
+        $this->refund_payment_api_url = $this->api_domain . $this->config[SSLCommerzEnum::$_API_URL][SSLCommerzEnum::$_API_REFUND_PAYMENT];
+        $this->refund_status_api_url = $this->api_domain . $this->config[SSLCommerzEnum::$_API_URL][SSLCommerzEnum::$_API_REFUND_STATUS];
     }
 }
