@@ -166,7 +166,13 @@ protected $except = [
 Validate order from **success**, **fail**, **cancel** or **ipn** url.
 ```php
 $sslcommerz = new SSLCommerz();
-$response = $sslcommerz->orderValidate($request->all());
+$response = $sslcommerz->orderValidate([
+    'val_id' => $request->input('val_id'),
+    'store_id' => 'your-store-id', // Optional: by default `$sslcommerz->getStoreId()`
+    'store_password' => 'your-store-password', // Optional: by default `$sslcommerz->getStorePassword()`
+    'v' => '1', // Optional: by default `1`
+    'format' => 'json' // Optional: by default `json`
+]);
 ```
 The response contains status and full information of order.
 > You are all set!
