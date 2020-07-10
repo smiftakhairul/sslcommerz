@@ -63,14 +63,57 @@ trait SSLCommerzService
 
     public function orderValidateApiRequest($data)
     {
-        $val_id = $data['val_id'];
-        $store_id = $data['store_id'];
-        $store_passwd = $data['store_password'];
-        $req_v = $data['v'];
-        $req_format = $data['format'];
-        $requested_url = $this->getOrderValidateApiUrl();
-        $requested_url .= '?val_id=' . $val_id . '&store_id=' . $store_id . '&store_passwd=' . $store_passwd . '&v=' . $req_v . '&format=' . $req_format;
-        $response = Http::get($requested_url);
+        $query_params = [
+            'val_id' => $data['val_id'],
+            'store_id' => $data['store_id'],
+            'store_passwd' => $data['store_password'],
+            'v' => $data['v'],
+            'format' => $data['format']
+        ];
+
+        $response = Http::get($this->getOrderValidateApiUrl(), $query_params);
+
+        return $response->body();
+    }
+
+    public function transactionQueryByIdParams(array $data)
+    {
+        if (empty($data) || empty($data['tran_id'])) {
+            return false;
+        }
+        return true;
+    }
+
+    public function transactionQueryByIdRequest($data)
+    {
+        $query_params = [
+            'tran_id' => $data['tran_id'],
+            'store_id' => $data['store_id'],
+            'store_passwd' => $data['store_password'],
+        ];
+
+        $response = Http::get($this->getTransactionStatusApiUrl(), $query_params);
+
+        return $response->body();
+    }
+
+    public function transactionQueryBySessionIdParams(array $data)
+    {
+        if (empty($data) || empty($data['sessionkey'])) {
+            return false;
+        }
+        return true;
+    }
+
+    public function transactionQueryBySessionIdRequest($data)
+    {
+        $query_params = [
+            'sessionkey' => $data['sessionkey'],
+            'store_id' => $data['store_id'],
+            'store_passwd' => $data['store_password'],
+        ];
+
+        $response = Http::get($this->getTransactionStatusApiUrl(), $query_params);
 
         return $response->body();
     }

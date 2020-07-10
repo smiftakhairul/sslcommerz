@@ -90,7 +90,7 @@ class SSLCommerz extends SSLCommerzUtil
         if (!$this->validateOrderParams($data)) {
             return $this->response = [
                 'status' => 'FAIL',
-                'message' => 'Please provide valid transaction ID or post request data'
+                'message' => 'Please provide valid val_id or post request data'
             ];
         }
 
@@ -109,5 +109,43 @@ class SSLCommerz extends SSLCommerzUtil
     public function formatCheckoutResponse($response)
     {
         return $this->apiFormatResponseCheckout($response);
+    }
+
+    public function transactionQueryById(array $data)
+    {
+        if (!$this->transactionQueryByIdParams($data)) {
+            return $this->response = [
+                'status' => 'FAIL',
+                'message' => 'Please provide valid tran_id or post request data'
+            ];
+        }
+
+        $data['store_id'] = isset($data['store_id']) && !empty($data['store_id'])
+            ? $data['store_id'] : $this->getStoreId();
+        $data['store_password'] = isset($data['store_password']) && !empty($data['store_password'])
+            ? $data['store_password'] : $this->getStorePassword();
+
+        $response = $this->transactionQueryByIdRequest($data);
+
+        return json_decode($response, true);
+    }
+
+    public function transactionQueryBySessionId(array $data)
+    {
+        if (!$this->transactionQueryBySessionIdParams($data)) {
+            return $this->response = [
+                'status' => 'FAIL',
+                'message' => 'Please provide valid sessionkey or post request data'
+            ];
+        }
+
+        $data['store_id'] = isset($data['store_id']) && !empty($data['store_id'])
+            ? $data['store_id'] : $this->getStoreId();
+        $data['store_password'] = isset($data['store_password']) && !empty($data['store_password'])
+            ? $data['store_password'] : $this->getStorePassword();
+
+        $response = $this->transactionQueryBySessionIdRequest($data);
+
+        return json_decode($response, true);
     }
 }
