@@ -117,4 +117,53 @@ trait SSLCommerzService
 
         return $response->body();
     }
+
+    public function refundPaymentParams(array $data)
+    {
+        if (empty($data)
+            || empty($data['bank_tran_id'])
+            || empty($data['refund_amount'])
+            || empty($data['refund_remarks'])) {
+            return false;
+        }
+        return true;
+    }
+
+    public function refundPaymentRequest($data)
+    {
+        $query_params = [
+            'bank_tran_id' => $data['bank_tran_id'],
+            'store_id' => $data['store_id'],
+            'store_passwd' => $data['store_password'],
+            'refund_amount' => $data['refund_amount'],
+            'refund_remarks' => $data['refund_remarks'],
+            'refe_id' => $data['refe_id'],
+            'format' => $data['format'],
+        ];
+
+        $response = Http::get($this->getRefundPaymentApiUrl(), $query_params);
+
+        return $response->body();
+    }
+
+    public function refundStatusParams(array $data)
+    {
+        if (empty($data) || empty($data['refund_ref_id'])) {
+            return false;
+        }
+        return true;
+    }
+
+    public function refundStatusRequest($data)
+    {
+        $query_params = [
+            'refund_ref_id' => $data['refund_ref_id'],
+            'store_id' => $data['store_id'],
+            'store_passwd' => $data['store_password'],
+        ];
+
+        $response = Http::get($this->getRefundStatusApiUrl(), $query_params);
+
+        return $response->body();
+    }
 }

@@ -148,4 +148,44 @@ class SSLCommerz extends SSLCommerzUtil
 
         return json_decode($response, true);
     }
+
+    public function refundPayment(array $data)
+    {
+        if (!$this->refundPaymentParams($data)) {
+            return $this->response = [
+                'status' => 'FAIL',
+                'message' => 'Please provide valid bank_tran_id or post request data'
+            ];
+        }
+
+        $data['store_id'] = isset($data['store_id']) && !empty($data['store_id'])
+            ? $data['store_id'] : $this->getStoreId();
+        $data['store_password'] = isset($data['store_password']) && !empty($data['store_password'])
+            ? $data['store_password'] : $this->getStorePassword();
+        $data['refe_id'] = (isset($data['refe_id']) && !empty($data['refe_id'])) ? $data['refe_id'] : 'refe-id' . uniqid();
+        $data['format'] = (isset($data['format']) && !empty($data['format'])) ? $data['format'] : 'json';
+
+        $response = $this->refundPaymentRequest($data);
+
+        return json_decode($response, true);
+    }
+
+    public function refundStatus(array $data)
+    {
+        if (!$this->refundStatusParams($data)) {
+            return $this->response = [
+                'status' => 'FAIL',
+                'message' => 'Please provide valid refund_ref_id or post request data'
+            ];
+        }
+
+        $data['store_id'] = isset($data['store_id']) && !empty($data['store_id'])
+            ? $data['store_id'] : $this->getStoreId();
+        $data['store_password'] = isset($data['store_password']) && !empty($data['store_password'])
+            ? $data['store_password'] : $this->getStorePassword();
+
+        $response = $this->refundStatusRequest($data);
+
+        return json_decode($response, true);
+    }
 }
