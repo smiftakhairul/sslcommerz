@@ -192,6 +192,28 @@ $response = $sslcommerz->transactionQueryBySessionId([
 ]);
 ```
 
+### Refund
+```php
+$sslcommerz = new SSLCommerz();
+
+// Initiate
+$response = $sslcommerz->refundPayment([
+    'bank_tran_id' => $request->input('bank_tran_id'),
+    'store_id' => 'your-store-id', // Optional: by default `$sslcommerz->getStoreId()`
+    'store_password' => 'your-store-password', // Optional: by default `$sslcommerz->getStorePassword()`
+    'refund_amount' => 1000,
+    'refund_remarks' => 'your-refund-remarks',
+    'refe_id' => 'your-ref-id', // Optional
+    'format' => 'json', // Optional: by default `json`
+]);
+// Status
+$response = $sslcommerz->refundStatus([
+    'refund_ref_id' => 'refund-ref-id',
+    'store_id' => 'your-store-id', // Optional: by default `$sslcommerz->getStoreId()`
+    'store_password' => 'your-store-password', // Optional: by default `$sslcommerz->getStorePassword()`
+]);
+```
+
 ## Available Env's & API's
 ***Environments:*** `getApiEnvironment()`
 - **sandbox** (`IS_PRODUCTION` false)
