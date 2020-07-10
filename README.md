@@ -162,8 +162,7 @@ protected $except = [
 ];
 ```
 
-### Validate Order
-Validate order from **success**, **fail**, **cancel** or **ipn** url.
+### Order Validation
 ```php
 $sslcommerz = new SSLCommerz();
 $response = $sslcommerz->orderValidate([
@@ -174,8 +173,41 @@ $response = $sslcommerz->orderValidate([
     'format' => 'json' // Optional: by default `json`
 ]);
 ```
-The response contains status and full information of order.
-> You are all set!
+
+### Transaction Query
+```php
+$sslcommerz = new SSLCommerz();
+
+// by Transaction Id
+$response = $sslcommerz->transactionQueryById([
+    'tran_id' => $request->input('tran_id'),
+    'store_id' => 'your-store-id', // Optional: by default `$sslcommerz->getStoreId()`
+    'store_password' => 'your-store-password', // Optional: by default `$sslcommerz->getStorePassword()`
+]);
+// by Session Id
+$response = $sslcommerz->transactionQueryBySessionId([
+    'sessionkey' => 'initiated-session-key',
+    'store_id' => 'your-store-id', // Optional: by default `$sslcommerz->getStoreId()`
+    'store_password' => 'your-store-password', // Optional: by default `$sslcommerz->getStorePassword()`
+]);
+```
+
+## Available Env's & API's
+***Environments:*** `getApiEnvironment()`
+- **sandbox** (`IS_PRODUCTION` false)
+- **production** (`IS_PRODUCTION` true)
+
+***Domains:*** `getApiDomain()`
+- **sandbox** (https://sandbox.sslcommerz.com)
+- **production** (https://securepay.sslcommerz.com)
+
+***APIs:***
+- `getApiUrl()` ([api_domain]/gwprocess/v4/api.php)
+- `getOrderValidateApiUrl()` ([api_domain]/validator/api/validationserverAPI.php)
+- `getTransactionStatusApiUrl()` ([api_domain]/validator/api/merchantTransIDvalidationAPI.php)
+- `getRefundPaymentApiUrl()` ([api_domain]/validator/api/merchantTransIDvalidationAPI.php)
+- `getRefundStatusApiUrl()` ([api_domain]/validator/api/merchantTransIDvalidationAPI.php)
+
 
 ## Available Methods
 <table>
