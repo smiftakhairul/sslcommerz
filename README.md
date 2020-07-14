@@ -232,22 +232,126 @@ $response = $sslcommerz->refundStatus([
 
 
 ## Available Methods
+##### Environment & domain related configuration:
 <table>
     <thead>
-        <tr>
-            <th>Method Name</th>
-            <th style="text-align: center">Param Info</th>
-            <th>Description</th>
-        </tr>
+    <tr>
+        <th>Method Name</th>
+        <th style="text-align: center">Param Info</th>
+        <th>Description</th>
+    </tr>
     </thead>
     <tbody>
-        <tr>
-            <td><code>getPrimaryInformation()</code></td>
-            <td style="text-align: center"></td>
-            <td>
-                Get primary information such as:
-                <br>
-                <span>
+    <tr>
+        <td><code>getApiEnvironment()</code></td>
+        <td style="text-align: center"></td>
+        <td>API environment: <b>sandbox</b> or <b>production</b>.</td>
+    </tr>
+    <tr>
+        <td><code>setApiEnvironment()</code></td>
+        <td style="text-align: center"><span><code>string</code></span></td>
+        <td>Set API environment: <b>sandbox</b> or <b>production</b> only.</td>
+    </tr>
+    <tr>
+        <td><code>getApiDomain()</code></td>
+        <td style="text-align: center"></td>
+        <td>API domain: for example <br><a href="https://sandbox.sslcommerz.com">https://sandbox.sslcommerz.com</a> <br>or
+            <br> <a
+                href="https://securepay.sslcommerz.com">https://securepay.sslcommerz.com</a></td>
+    </tr>
+    <tr>
+        <td><code>isProductionMode()</code></td>
+        <td style="text-align: center"></td>
+        <td>Get <b>production_mode</b>.</td>
+    </tr>
+    <tr>
+        <td><code>setProductionMode()</code></td>
+        <td style="text-align: center"><span><code>boolean</code></span></td>
+        <td>Set <b>production_mode</b>. By default, <b>production_mode</b> sets by <code>IS_PRODUCTION</code> value.</td>
+    </tr>
+    </tbody>
+</table>
+
+##### API url configuration:
+<table>
+    <thead>
+    <tr>
+        <th>Method Name</th>
+        <th style="text-align: center">Param Info</th>
+        <th>Description</th>
+    </tr>
+    </thead>
+    <tbody>
+    <tr>
+        <td><code>getApiUrl()</code></td>
+        <td style="text-align: center"></td>
+        <td>Get payment initiate api url.</td>
+    </tr>
+    <tr>
+        <td><code>setApiUrl()</code></td>
+        <td style="text-align: center"><span><code>string</code></span></td>
+        <td>Set payment initiate api url. By default, api url sets based on <code>IS_PRODUCTION</code> value. If <code>IS_PRODUCTION = true</code>, live api url will be set and for <code>IS_PRODUCTION = false</code> sandbox api url will be set.</td>
+    </tr>
+    <tr>
+        <td><code>getTransactionStatusApiUrl()</code></td>
+        <td style="text-align: center"></td>
+        <td>Get transaction status api url.</td>
+    </tr>
+    <tr>
+        <td><code>setTransactionStatusApiUrl()</code></td>
+        <td style="text-align: center"><span><code>string</code></span></td>
+        <td>Set transaction status api url.</td>
+    </tr>
+    <tr>
+        <td><code>getOrderValidateApiUrl()</code></td>
+        <td style="text-align: center"></td>
+        <td>Get order validation api url.</td>
+    </tr>
+    <tr>
+        <td><code>setOrderValidateApiUrl()</code></td>
+        <td style="text-align: center"><span><code>string</code></span></td>
+        <td>Set order validation api url.</td>
+    </tr>
+    <tr>
+        <td><code>getRefundPaymentApiUrl()</code></td>
+        <td style="text-align: center"></td>
+        <td>Get refund payment api url.</td>
+    </tr>
+    <tr>
+        <td><code>setRefundPaymentApiUrl()</code></td>
+        <td style="text-align: center"><span><code>string</code></span></td>
+        <td>Set refund payment api url.</td>
+    </tr>
+    <tr>
+        <td><code>getRefundStatusApiUrl()</code></td>
+        <td style="text-align: center"></td>
+        <td>Get refund status api url.</td>
+    </tr>
+    <tr>
+        <td><code>setRefundStatusApiUrl()</code></td>
+        <td style="text-align: center"><span><code>string</code></span></td>
+        <td>Set refund status api url.</td>
+    </tr>
+    </tbody>
+</table>
+
+#### Set information as a compact:
+<table>
+    <thead>
+    <tr>
+        <th>Method Name</th>
+        <th style="text-align: center">Param Info</th>
+        <th>Description</th>
+    </tr>
+    </thead>
+    <tbody>
+    <tr>
+        <td><code>getPrimaryInformation()</code></td>
+        <td style="text-align: center"></td>
+        <td>
+            Get primary information such as:
+            <br>
+            <span>
                     <span><b>store_id</b></span>,
                     <span><b>store_passwd</b></span>,
                     <span><b>total_amount</b></span>,
@@ -257,40 +361,40 @@ $response = $sslcommerz->refundStatus([
                     <span><b>fail_url</b></span>,
                     <span><b>cancel_url</b></span> and other optional information.
                 </span>
-            </td>
-        </tr>
-        <tr>
-            <td><code>setPrimaryInformation()</code></td>
-            <td style="text-align: center"><span><code>array()</code></span></td>
-            <td>
-                Set primary information.
-                <br><br>
-                Required parameter key elements:
-                <ul>
-                    <li><b>store_id</b></li>
-                    <li><b>store_passwd</b></li>
-                    <li><b>total_amount</b></li>
-                    <li><b>currency</b></li>
-                    <li><b>tran_id</b></li>
-                    <li><b>success_url</b></li>
-                    <li><b>fail_url</b></li>
-                    <li><b>cancel_url</b></li>
-                </ul>
-                Optional parameter key elements:
-                <ul>
-                    <li><b>ipn_url</b></li>
-                    <li><b>multi_card_name</b></li>
-                    <li><b>allowed_bin</b></li>
-                </ul>
-            </td>
-        </tr>
-        <tr>
-            <td><code>getCustomerInformation()</code></td>
-            <td style="text-align: center"></td>
-            <td>
-                Get customer information such as:
-                <br>
-                <span>
+        </td>
+    </tr>
+    <tr>
+        <td><code>setPrimaryInformation()</code></td>
+        <td style="text-align: center"><span><code>array()</code></span></td>
+        <td>
+            Set primary information.
+            <br><br>
+            Required parameter key elements:
+            <ul>
+                <li><b>store_id</b></li>
+                <li><b>store_passwd</b></li>
+                <li><b>total_amount</b></li>
+                <li><b>currency</b></li>
+                <li><b>tran_id</b></li>
+                <li><b>success_url</b></li>
+                <li><b>fail_url</b></li>
+                <li><b>cancel_url</b></li>
+            </ul>
+            Optional parameter key elements:
+            <ul>
+                <li><b>ipn_url</b></li>
+                <li><b>multi_card_name</b></li>
+                <li><b>allowed_bin</b></li>
+            </ul>
+        </td>
+    </tr>
+    <tr>
+        <td><code>getCustomerInformation()</code></td>
+        <td style="text-align: center"></td>
+        <td>
+            Get customer information such as:
+            <br>
+            <span>
                     <span><b>cus_name</b></span>,
                     <span><b>cus_email</b></span>,
                     <span><b>cus_add1</b></span>,
@@ -300,794 +404,788 @@ $response = $sslcommerz->refundStatus([
                     <span><b>cus_country</b></span>,
                     <span><b>cus_phone</b></span> and other optional information.
                 </span>
-            </td>
-        </tr>
-        <tr>
-            <td><code>setCustomerInformation()</code></td>
-            <td style="text-align: center"><span><code>array()</code></span></td>
-            <td>
-                Set customer information.
-                <br><br>
-                Required parameter key elements:
-                <ul>
-                    <li><b>cus_name</b></li>
-                    <li><b>cus_email</b></li>
-                    <li><b>cus_add1</b></li>
-                    <li><b>cus_add2</b></li>
-                    <li><b>cus_city</b></li>
-                    <li><b>cus_postcode</b></li>
-                    <li><b>cus_country</b></li>
-                    <li><b>cus_phone</b></li>
-                </ul>
-                Optional parameter key elements:
-                <ul>
-                    <li><b>cus_state</b></li>
-                    <li><b>cus_fax</b></li>
-                </ul>
-            </td>
-        </tr>
-        <tr>
-            <td><code>getProductInformation()</code></td>
-            <td style="text-align: center"></td>
-            <td>
-                Get product information such as:
-                <br>
-                <span>
+        </td>
+    </tr>
+    <tr>
+        <td><code>setCustomerInformation()</code></td>
+        <td style="text-align: center"><span><code>array()</code></span></td>
+        <td>
+            Set customer information.
+            <br><br>
+            Required parameter key elements:
+            <ul>
+                <li><b>cus_name</b></li>
+                <li><b>cus_email</b></li>
+                <li><b>cus_add1</b></li>
+                <li><b>cus_add2</b></li>
+                <li><b>cus_city</b></li>
+                <li><b>cus_postcode</b></li>
+                <li><b>cus_country</b></li>
+                <li><b>cus_phone</b></li>
+            </ul>
+            Optional parameter key elements:
+            <ul>
+                <li><b>cus_state</b></li>
+                <li><b>cus_fax</b></li>
+            </ul>
+        </td>
+    </tr>
+    <tr>
+        <td><code>getProductInformation()</code></td>
+        <td style="text-align: center"></td>
+        <td>
+            Get product information such as:
+            <br>
+            <span>
                     <span><b>product_name</b></span>,
                     <span><b>product_category</b></span>,
                     <span><b>product_profile</b></span> and other optional information.
                 </span>
-            </td>
-        </tr>
-        <tr>
-            <td><code>setProductInformation()</code></td>
-            <td style="text-align: center"><span><code>array()</code></span></td>
-            <td>
-                Set product information.
-                <br><br>
-                Required parameter key elements:
-                <ul>
-                    <li><b>product_name</b></li>
-                    <li><b>product_category</b></li>
-                    <li><b>product_profile</b></li>
-                </ul>
-                Optional parameter key elements:
-                <ul>
-                    <li><b>cart</b></li>
-                    <li><b>product_amount</b></li>
-                    <li><b>vat</b></li>
-                    <li><b>discount_amount</b></li>
-                    <li><b>convenience_fee</b></li>
-                    <li><b>hours_till_departure</b></li>
-                    <li><b>flight_type</b></li>
-                    <li><b>pnr</b></li>
-                    <li><b>journey_from_to</b></li>
-                    <li><b>third_party_booking</b></li>
-                    <li><b>hotel_name</b></li>
-                    <li><b>length_of_stay</b></li>
-                    <li><b>check_in_time</b></li>
-                    <li><b>hotel_city</b></li>
-                    <li><b>product_type</b></li>
-                    <li><b>topup_number</b></li>
-                    <li><b>country_topup</b></li>
-                </ul>
-            </td>
-        </tr>
-        <tr>
-            <td><code>getShipmentInformation()</code></td>
-            <td style="text-align: center"></td>
-            <td>
-                Get shipment information such as:
-                <br>
-                <span>
+        </td>
+    </tr>
+    <tr>
+        <td><code>setProductInformation()</code></td>
+        <td style="text-align: center"><span><code>array()</code></span></td>
+        <td>
+            Set product information.
+            <br><br>
+            Required parameter key elements:
+            <ul>
+                <li><b>product_name</b></li>
+                <li><b>product_category</b></li>
+                <li><b>product_profile</b></li>
+            </ul>
+            Optional parameter key elements:
+            <ul>
+                <li><b>cart</b></li>
+                <li><b>product_amount</b></li>
+                <li><b>vat</b></li>
+                <li><b>discount_amount</b></li>
+                <li><b>convenience_fee</b></li>
+                <li><b>hours_till_departure</b></li>
+                <li><b>flight_type</b></li>
+                <li><b>pnr</b></li>
+                <li><b>journey_from_to</b></li>
+                <li><b>third_party_booking</b></li>
+                <li><b>hotel_name</b></li>
+                <li><b>length_of_stay</b></li>
+                <li><b>check_in_time</b></li>
+                <li><b>hotel_city</b></li>
+                <li><b>product_type</b></li>
+                <li><b>topup_number</b></li>
+                <li><b>country_topup</b></li>
+            </ul>
+        </td>
+    </tr>
+    <tr>
+        <td><code>getShipmentInformation()</code></td>
+        <td style="text-align: center"></td>
+        <td>
+            Get shipment information such as:
+            <br>
+            <span>
                     <span><b>shipping_method</b></span>,
                     <span><b>num_of_item</b></span> and other optional information.
                 </span>
-            </td>
-        </tr>
-        <tr>
-            <td><code>setShipmentInformation()</code></td>
-            <td style="text-align: center"><span><code>array()</code></span></td>
-            <td>
-                Set shipment information.
-                <br><br>
-                Required parameter key elements:
-                <ul>
-                    <li><b>shipping_method</b></li>
-                    <li><b>num_of_item</b></li>
-                </ul>
-                Optional parameter key elements:
-                <ul>
-                    <li><b>ship_name</b></li>
-                    <li><b>ship_add1</b></li>
-                    <li><b>ship_add2</b></li>
-                    <li><b>ship_state</b></li>
-                    <li><b>ship_city</b></li>
-                    <li><b>ship_postcode</b></li>
-                    <li><b>ship_country</b></li>
-                </ul>
-            </td>
-        </tr>
-        <tr>
-            <td><code>getEmiInformation()</code></td>
-            <td style="text-align: center"></td>
-            <td>
-                Get EMI information such as:
-                <br>
-                <span>
+        </td>
+    </tr>
+    <tr>
+        <td><code>setShipmentInformation()</code></td>
+        <td style="text-align: center"><span><code>array()</code></span></td>
+        <td>
+            Set shipment information.
+            <br><br>
+            Required parameter key elements:
+            <ul>
+                <li><b>shipping_method</b></li>
+                <li><b>num_of_item</b></li>
+            </ul>
+            Optional parameter key elements:
+            <ul>
+                <li><b>ship_name</b></li>
+                <li><b>ship_add1</b></li>
+                <li><b>ship_add2</b></li>
+                <li><b>ship_state</b></li>
+                <li><b>ship_city</b></li>
+                <li><b>ship_postcode</b></li>
+                <li><b>ship_country</b></li>
+            </ul>
+        </td>
+    </tr>
+    <tr>
+        <td><code>getEmiInformation()</code></td>
+        <td style="text-align: center"></td>
+        <td>
+            Get EMI information such as:
+            <br>
+            <span>
                     <span><b>emi_option</b></span> and other optional information.
                 </span>
-            </td>
-        </tr>
-        <tr>
-            <td><code>setEmiInformation()</code></td>
-            <td style="text-align: center"><span><code>array()</code></span></td>
-            <td>
-                Set EMI information.
-                <br><br>
-                Required parameter key elements:
-                <ul>
-                    <li><b>emi_option</b></li>
-                </ul>
-                Optional parameter key elements:
-                <ul>
-                    <li><b>emi_max_inst_option</b></li>
-                    <li><b>emi_selected_inst</b></li>
-                    <li><b>emi_allow_only</b></li>
-                </ul>
-            </td>
-        </tr>
-        <tr>
-            <td><code>getAdditionalInformation()</code></td>
-            <td style="text-align: center"></td>
-            <td>
-                Get additional information such as:
-                <br>
-                <span>
+        </td>
+    </tr>
+    <tr>
+        <td><code>setEmiInformation()</code></td>
+        <td style="text-align: center"><span><code>array()</code></span></td>
+        <td>
+            Set EMI information.
+            <br><br>
+            Required parameter key elements:
+            <ul>
+                <li><b>emi_option</b></li>
+            </ul>
+            Optional parameter key elements:
+            <ul>
+                <li><b>emi_max_inst_option</b></li>
+                <li><b>emi_selected_inst</b></li>
+                <li><b>emi_allow_only</b></li>
+            </ul>
+        </td>
+    </tr>
+    <tr>
+        <td><code>getAdditionalInformation()</code></td>
+        <td style="text-align: center"></td>
+        <td>
+            Get additional information such as:
+            <br>
+            <span>
                     <span><b>value_a</b></span>,
                     <span><b>value_b</b></span>,
                     <span><b>value_c</b></span>,
                     <span><b>value_d</b></span>.
                 </span>
-            </td>
-        </tr>
-        <tr>
-            <td><code>setAdditionalInformation()</code></td>
-            <td style="text-align: center"><span><code>array()</code></span></td>
-            <td>
-                Set additional information.
-                <br><br>
-                Optional parameter key elements:
-                <ul>
-                    <li><b>value_a</b></li>
-                    <li><b>value_b</b></li>
-                    <li><b>value_c</b></li>
-                    <li><b>value_d</b></li>
-                </ul>
-            </td>
-        </tr>
-        <tr>
-            <td><code>getApiUrl()</code></td>
-            <td style="text-align: center"></td>
-            <td>Get <b>api_url</b>.</td>
-        </tr>
-        <tr>
-            <td><code>setApiUrl()</code><b>*</b></td>
-            <td style="text-align: center"><span><code>string</code></span></td>
-            <td>Set <b>api_url</b>. By default, <b>api_url</b> sets based on <code>IS_PRODUCTION</code> value. If <code>IS_PRODUCTION = true</code>, live api url will be set and for <code>IS_PRODUCTION = false</code> sandbox api url will be set.</td>
-        </tr>
-        <tr>
-            <td><code>isProductionMode()</code></td>
-            <td style="text-align: center"></td>
-            <td>Get <b>production_mode</b>.</td>
-        </tr>
-        <tr>
-            <td><code>setProductionMode()</code><b>*</b></td>
-            <td style="text-align: center"><span><code>boolean</code></span></td>
-            <td>Set <b>production_mode</b>. By default, <b>production_mode</b> sets by <code>IS_PRODUCTION</code> value.</td>
-        </tr>
-        <tr>
-            <td><code>getPaymentDisplayType()</code></td>
-            <td style="text-align: center"></td>
-            <td>Get payment display type.</td>
-        </tr>
-        <tr>
-            <td><code>setPaymentDisplayType()</code><b>*</b></td>
-            <td style="text-align: center"><span><code>enum('hosted', 'checkout')</code></span></td>
-            <td>Set payment display type. Default value is <b>checkout</b>.</td>
-        </tr>
-        <tr>
-            <td><code>getStoreId()</code></td>
-            <td style="text-align: center"></td>
-            <td>Get SSLCommerz <b>store_id</b>.</td>
-        </tr>
-        <tr>
-            <td><code>setStoreId()</code><b>*</b></td>
-            <td style="text-align: center"><span><code>string</code></span></td>
-            <td>Set SSLCommerz <b>store_id</b>. Default value sets by <code>STORE_ID</code> value.</td>
-        </tr>
-        <tr>
-            <td><code>getStorePassword()</code></td>
-            <td style="text-align: center"></td>
-            <td>Get SSLCommerz <b>store_passwd</b>.</td>
-        </tr>
-        <tr>
-            <td><code>setStorePassword()</code><b>*</b></td>
-            <td style="text-align: center"><span><code>string</code></span></td>
-            <td>Set SSLCommerz <b>store_passwd</b>. Default value sets by <code>STORE_PASSWORD</code> value.</td>
-        </tr>
-        <tr>
-            <td><code>getTotalAmount()</code></td>
-            <td style="text-align: center"></td>
-            <td>Get <b>total_amount</b> of transaction.</td>
-        </tr>
-        <tr>
-            <td><code>setTotalAmount()</code><b>*</b></td>
-            <td style="text-align: center"><span><code>decimal</code></span></td>
-            <td>Set <b>total_amount</b> of transaction. The transaction amount must be from <b>10.00 BDT</b> to <b>500000.00 BDT</b></td>
-        </tr>
-        <tr>
-            <td><code>getCurrency()</code></td>
-            <td style="text-align: center"></td>
-            <td>Get <b>currency</b> type. Example: BDT, USD, EUR, SGD, INR, MYR, etc</td>
-        </tr>
-        <tr>
-            <td><code>setCurrency()</code><b>*</b></td>
-            <td style="text-align: center"><span><code>string</code></span></td>
-            <td>Set <b>currency</b> type.</td>
-        </tr>
-        <tr>
-            <td><code>getTranId()</code></td>
-            <td style="text-align: center"></td>
-            <td>Get unique <b>tran_id</b> to identify order.</td>
-        </tr>
-        <tr>
-            <td><code>setTranId()</code><b>*</b></td>
-            <td style="text-align: center"><span><code>string</code></span></td>
-            <td>Set <b>tran_id</b> to unify your order.</td>
-        </tr>
-        <tr>
-            <td><code>getSuccessUrl()</code></td>
-            <td style="text-align: center"></td>
-            <td>Get callback <b>success_url</b>.</td>
-        </tr>
-        <tr>
-            <td><code>setSuccessUrl()</code><b>*</b></td>
-            <td style="text-align: center"><span><code>string</code></span></td>
-            <td>Set callback <b>success_url</b> where user will redirect after successful payment.</td>
-        </tr>
-        <tr>
-            <td><code>getFailUrl()</code></td>
-            <td style="text-align: center"></td>
-            <td>Get callback <b>fail_url</b>.</td>
-        </tr>
-        <tr>
-            <td><code>setFailUrl()</code><b>*</b></td>
-            <td style="text-align: center"><span><code>string</code></span></td>
-            <td>Set callback <b>fail_url</b> where user will redirect after any failure occurs during payment.</td>
-        </tr>
-        <tr>
-            <td><code>getCancelUrl()</code></td>
-            <td style="text-align: center"></td>
-            <td>Get callback <b>cancel_url</b>.</td>
-        </tr>
-        <tr>
-            <td><code>setCancelUrl()</code><b>*</b></td>
-            <td style="text-align: center"><span><code>string</code></span></td>
-            <td>Set callback <b>cancel_url</b> where user will redirect if user cancels the transaction.</td>
-        </tr>
-        <tr>
-            <td><code>getIpnUrl()</code></td>
-            <td style="text-align: center"></td>
-            <td>Get Instant Payment Notification <b>ipn_url</b>.</td>
-        </tr>
-        <tr>
-            <td><code>setIpnUrl()</code></td>
-            <td style="text-align: center"><span><code>string</code></span></td>
-            <td>Set <b>ipn_url</b>. Enable instant payment notification option so that SSLCommerz can send the transaction's status to ipn_url.</td>
-        </tr>
-        <tr>
-            <td><code>getMultiCardName()</code></td>
-            <td style="text-align: center"></td>
-            <td>Get <b>multi_card_name</b>.</td>
-        </tr>
-        <tr>
-            <td><code>setMultiCardName()</code></td>
-            <td style="text-align: center"><span><code>string</code></span></td>
-            <td>Set <b>multi_card_name</b>. Use it only if gateway list needs to be customized.</td>
-        </tr>
-        <tr>
-            <td><code>getAllowedBin()</code></td>
-            <td style="text-align: center"></td>
-            <td>Get <b>allowed_bin</b>.</td>
-        </tr>
-        <tr>
-            <td><code>setAllowedBin()</code></td>
-            <td style="text-align: center"><span><code>string</code></span></td>
-            <td>Set <b>allowed_bin</b>. Use it only if transaction needs to be controlled.</td>
-        </tr>
-        <tr>
-            <td><code>getCustomerName()</code></td>
-            <td style="text-align: center"></td>
-            <td>Get <b>cus_name</b>.</td>
-        </tr>
-        <tr>
-            <td><code>setCustomerName()</code><b>*</b></td>
-            <td style="text-align: center"><span><code>string</code></span></td>
-            <td>Set <b>cus_name</b>.</td>
-        </tr>
-        <tr>
-            <td><code>getCustomerEmail()</code></td>
-            <td style="text-align: center"></td>
-            <td>Get <b>cus_email</b>.</td>
-        </tr>
-        <tr>
-            <td><code>setCustomerEmail()</code><b>*</b></td>
-            <td style="text-align: center"><span><code>string</code></span></td>
-            <td>Set <b>cus_email</b>.</td>
-        </tr>
-        <tr>
-            <td><code>getCustomerAddress1()</code></td>
-            <td style="text-align: center"></td>
-            <td>Get <b>cus_add1</b>.</td>
-        </tr>
-        <tr>
-            <td><code>setCustomerAddress1()</code><b>*</b></td>
-            <td style="text-align: center"><span><code>string</code></span></td>
-            <td>Set <b>cus_add1</b>.</td>
-        </tr>
-        <tr>
-            <td><code>getCustomerAddress2()</code></td>
-            <td style="text-align: center"></td>
-            <td>Get <b>cus_add2</b>.</td>
-        </tr>
-        <tr>
-            <td><code>setCustomerAddress2()</code></td>
-            <td style="text-align: center"><span><code>string</code></span></td>
-            <td>Set <b>cus_add2</b>.</td>
-        </tr>
-        <tr>
-            <td><code>getCustomerCity()</code></td>
-            <td style="text-align: center"></td>
-            <td>Get <b>cus_city</b>.</td>
-        </tr>
-        <tr>
-            <td><code>setCustomerCity()</code><b>*</b></td>
-            <td style="text-align: center"><span><code>string</code></span></td>
-            <td>Set <b>cus_city</b>.</td>
-        </tr>
-        <tr>
-            <td><code>getCustomerState()</code></td>
-            <td style="text-align: center"></td>
-            <td>Get <b>cus_state</b>.</td>
-        </tr>
-        <tr>
-            <td><code>setCustomerState()</code></td>
-            <td style="text-align: center"><span><code>string</code></span></td>
-            <td>Set <b>cus_state</b>.</td>
-        </tr>
-        <tr>
-            <td><code>getCustomerPostCode()</code></td>
-            <td style="text-align: center"></td>
-            <td>Get <b>cus_postcode</b>.</td>
-        </tr>
-        <tr>
-            <td><code>setCustomerPostCode()</code><b>*</b></td>
-            <td style="text-align: center"><span><code>string</code></span></td>
-            <td>Set <b>cus_postcode</b>.</td>
-        </tr>
-        <tr>
-            <td><code>getCustomerCountry()</code></td>
-            <td style="text-align: center"></td>
-            <td>Get <b>cus_country</b>.</td>
-        </tr>
-        <tr>
-            <td><code>setCustomerCountry()</code><b>*</b></td>
-            <td style="text-align: center"><span><code>string</code></span></td>
-            <td>Set <b>cus_country</b>.</td>
-        </tr>
-        <tr>
-            <td><code>getCustomerPhone()</code></td>
-            <td style="text-align: center"></td>
-            <td>Get <b>cus_phone</b>.</td>
-        </tr>
-        <tr>
-            <td><code>setCustomerPhone()</code><b>*</b></td>
-            <td style="text-align: center"><span><code>string</code></span></td>
-            <td>Set <b>cus_phone</b>.</td>
-        </tr>
-        <tr>
-            <td><code>getCustomerFax()</code></td>
-            <td style="text-align: center"></td>
-            <td>Get <b>cus_fax</b>.</td>
-        </tr>
-        <tr>
-            <td><code>setCustomerFax()</code></td>
-            <td style="text-align: center"><span><code>string</code></span></td>
-            <td>Set <b>cus_fax</b>.</td>
-        </tr>
-        <tr>
-            <td><code>getProductName()</code></td>
-            <td style="text-align: center"></td>
-            <td>Get <b>product_name</b>.</td>
-        </tr>
-        <tr>
-            <td><code>setProductName()</code><b>*</b></td>
-            <td style="text-align: center"><span><code>string</code></span></td>
-            <td>Set <b>product_name</b>.</td>
-        </tr>
-        <tr>
-            <td><code>getProductCategory()</code></td>
-            <td style="text-align: center"></td>
-            <td>Get <b>product_category</b>.</td>
-        </tr>
-        <tr>
-            <td><code>setProductCategory()</code><b>*</b></td>
-            <td style="text-align: center"><span><code>string</code></span></td>
-            <td>Set <b>product_category</b>.</td>
-        </tr>
-        <tr>
-            <td><code>getProductProfile()</code></td>
-            <td style="text-align: center"></td>
-            <td>Get <b>product_profile</b>.</td>
-        </tr>
-        <tr>
-            <td><code>setProductProfile()</code><b>*</b></td>
-            <td style="text-align: center"><span><code>string</code></span></td>
-            <td>Set <b>product_profile</b>.
-                <br><br>Available keys:
-                <ol>
-                    <li>general</li>
-                    <li>physical-goods</li>
-                    <li>non-physical-goods</li>
-                    <li>airline-tickets</li>
-                    <li>travel-vertical</li>
-                    <li>telecom-vertical</li>
-                </ol>
-            </td>
-        </tr>
-        <tr>
-            <td><code>getProductHoursTillDeparture()</code></td>
-            <td style="text-align: center"></td>
-            <td>Get <b>hours_till_departure</b>.</td>
-        </tr>
-        <tr>
-            <td><code>setProductHoursTillDeparture()</code><b>**</b></td>
-            <td style="text-align: center"><span><code>string</code></span></td>
-            <td>Set <b>hours_till_departure</b>. <b>Required</b> if <code>product_profile</code> is <b>airline-tickets</b>.</td>
-        </tr>
-        <tr>
-            <td><code>getProductFlightType()</code></td>
-            <td style="text-align: center"></td>
-            <td>Get <b>flight_type</b>.</td>
-        </tr>
-        <tr>
-            <td><code>setProductFlightType()</code><b>**</b></td>
-            <td style="text-align: center"><span><code>string</code></span></td>
-            <td>Set <b>flight_type</b>. <b>Required</b> if <code>product_profile</code> is <b>airline-tickets</b>.</td>
-        </tr>
-        <tr>
-            <td><code>getProductPnr()</code></td>
-            <td style="text-align: center"></td>
-            <td>Get <b>pnr</b>.</td>
-        </tr>
-        <tr>
-            <td><code>setProductPnr()</code><b>**</b></td>
-            <td style="text-align: center"><span><code>string</code></span></td>
-            <td>Set <b>pnr</b>. <b>Required</b> if <code>product_profile</code> is <b>airline-tickets</b>.</td>
-        </tr>
-        <tr>
-            <td><code>getProductJourneyFromTo()</code></td>
-            <td style="text-align: center"></td>
-            <td>Get <b>journey_from_to</b>.</td>
-        </tr>
-        <tr>
-            <td><code>setProductJourneyFromTo()</code><b>**</b></td>
-            <td style="text-align: center"><span><code>string</code></span></td>
-            <td>Set <b>journey_from_to</b>. <b>Required</b> if <code>product_profile</code> is <b>airline-tickets</b>.</td>
-        </tr>
-        <tr>
-            <td><code>getProductThirdPartyBooking()</code></td>
-            <td style="text-align: center"></td>
-            <td>Get <b>third_party_booking</b>.</td>
-        </tr>
-        <tr>
-            <td><code>setProductThirdPartyBooking()</code><b>**</b></td>
-            <td style="text-align: center"><span><code>string</code></span></td>
-            <td>Set <b>third_party_booking</b>. <b>Required</b> if <code>product_profile</code> is <b>airline-tickets</b>.</td>
-        </tr>
-        <tr>
-            <td><code>getProductHotelName()</code></td>
-            <td style="text-align: center"></td>
-            <td>Get <b>hotel_name</b>.</td>
-        </tr>
-        <tr>
-            <td><code>setProductHotelName()</code><b>**</b></td>
-            <td style="text-align: center"><span><code>string</code></span></td>
-            <td>Set <b>hotel_name</b>. <b>Required</b> if <code>product_profile</code> is <b>travel-vertical</b>.</td>
-        </tr>
-        <tr>
-            <td><code>getProductLengthOfStay()</code></td>
-            <td style="text-align: center"></td>
-            <td>Get <b>length_of_stay</b>.</td>
-        </tr>
-        <tr>
-            <td><code>setProductLengthOfStay()</code><b>**</b></td>
-            <td style="text-align: center"><span><code>string</code></span></td>
-            <td>Set <b>length_of_stay</b>. <b>Required</b> if <code>product_profile</code> is <b>travel-vertical</b>.</td>
-        </tr>
-        <tr>
-            <td><code>getProductCheckInTime()</code></td>
-            <td style="text-align: center"></td>
-            <td>Get <b>check_in_time</b>.</td>
-        </tr>
-        <tr>
-            <td><code>setProductCheckInTime()</code><b>**</b></td>
-            <td style="text-align: center"><span><code>string</code></span></td>
-            <td>Set <b>check_in_time</b>. <b>Required</b> if <code>product_profile</code> is <b>travel-vertical</b>.</td>
-        </tr>
-        <tr>
-            <td><code>getProductHotelCity()</code></td>
-            <td style="text-align: center"></td>
-            <td>Get <b>hotel_city</b>.</td>
-        </tr>
-        <tr>
-            <td><code>setProductHotelCity()</code><b>**</b></td>
-            <td style="text-align: center"><span><code>string</code></span></td>
-            <td>Set <b>hotel_city</b>. <b>Required</b> if <code>product_profile</code> is <b>travel-vertical</b>.</td>
-        </tr>
-        <tr>
-            <td><code>getProductType()</code></td>
-            <td style="text-align: center"></td>
-            <td>Get <b>product_type</b>.</td>
-        </tr>
-        <tr>
-            <td><code>setProductType()</code><b>**</b></td>
-            <td style="text-align: center"><span><code>string</code></span></td>
-            <td>Set <b>product_type</b>. <b>Required</b> if <code>product_profile</code> is <b>telecom-vertical</b>.</td>
-        </tr>
-        <tr>
-            <td><code>getProductTopUpNumber()</code></td>
-            <td style="text-align: center"></td>
-            <td>Get <b>topup_number</b>.</td>
-        </tr>
-        <tr>
-            <td><code>setProductTopUpNumber()</code><b>**</b></td>
-            <td style="text-align: center"><span><code>string</code></span></td>
-            <td>Set <b>topup_number</b>. <b>Required</b> if <code>product_profile</code> is <b>telecom-vertical</b>.</td>
-        </tr>
-        <tr>
-            <td><code>getProductCountryTopUp()</code></td>
-            <td style="text-align: center"></td>
-            <td>Get <b>country_topup</b>.</td>
-        </tr>
-        <tr>
-            <td><code>setProductCountryTopUp()</code><b>**</b></td>
-            <td style="text-align: center"><span><code>string</code></span></td>
-            <td>Set <b>country_topup</b>. <b>Required</b> if <code>product_profile</code> is <b>telecom-vertical</b>.</td>
-        </tr>
-        <tr>
-            <td><code>getCart()</code></td>
-            <td style="text-align: center"></td>
-            <td>Get <b>cart</b>.</td>
-        </tr>
-        <tr>
-            <td><code>setCart()</code></td>
-            <td style="text-align: center"><span><code>json</code></span></td>
-            <td>Set <b>cart</b>. JSON data with two elements. <b>product</b>: Max 255 characters, <b>quantity</b>: Quantity in numeric value and <b>amount</b>: Decimal (12,2).<br><br>Example:<br><code>[{"product":"DHK TO BRS AC A1","quantity":"1","amount":"200.00"},{"product":"DHK TO BRS AC A2","quantity":"1","amount":"200.00"},{"product":"DHK TO BRS AC A3","quantity":"1","amount":"200.00"},{"product":"DHK TO BRS AC A4","quantity":"2","amount":"200.00"}]</code></td>
-        </tr>
-        <tr>
-            <td><code>getProductAmount()</code></td>
-            <td style="text-align: center"></td>
-            <td>Get <b>product_amount</b>.</td>
-        </tr>
-        <tr>
-            <td><code>setProductAmount()</code></td>
-            <td style="text-align: center"><span><code>decimal</code></span></td>
-            <td>Set <b>product_amount</b>.</td>
-        </tr>
-        <tr>
-            <td><code>getVat()</code></td>
-            <td style="text-align: center"></td>
-            <td>Get <b>vat</b>.</td>
-        </tr>
-        <tr>
-            <td><code>setVat()</code></td>
-            <td style="text-align: center"><span><code>decimal</code></span></td>
-            <td>Set <b>vat</b>.</td>
-        </tr>
-        <tr>
-            <td><code>getDiscountAmount()</code></td>
-            <td style="text-align: center"></td>
-            <td>Get <b>discount_amount</b>.</td>
-        </tr>
-        <tr>
-            <td><code>setDiscountAmount()</code></td>
-            <td style="text-align: center"><span><code>decimal</code></span></td>
-            <td>Set <b>discount_amount</b>.</td>
-        </tr>
-        <tr>
-            <td><code>getConvenienceFee()</code></td>
-            <td style="text-align: center"></td>
-            <td>Get <b>convenience_fee</b>.</td>
-        </tr>
-        <tr>
-            <td><code>setConvenienceFee()</code></td>
-            <td style="text-align: center"><span><code>decimal</code></span></td>
-            <td>Set <b>convenience_fee</b>.</td>
-        </tr>
-        <tr>
-            <td><code>getShippingMethod()</code></td>
-            <td style="text-align: center"></td>
-            <td>Get <b>shipping_method</b> of the order.</td>
-        </tr>
-        <tr>
-            <td><code>setShippingMethod()</code><b>*</b></td>
-            <td style="text-align: center"><span><code>string</code></span></td>
-            <td>Set <b>shipping_method</b> of the order. Example: YES or NO or Courier.</td>
-        </tr>
-        <tr>
-            <td><code>getShippingItemNumber()</code></td>
-            <td style="text-align: center"></td>
-            <td>Get <b>num_of_item</b> of product.</td>
-        </tr>
-        <tr>
-            <td><code>setShippingItemNumber()</code><b>*</b></td>
-            <td style="text-align: center"><span><code>integer</code></span></td>
-            <td>Set <b>num_of_item</b> of product will be shipped.</td>
-        </tr>
-        <tr>
-            <td><code>getShippingName()</code></td>
-            <td style="text-align: center"></td>
-            <td>Get <b>ship_name</b> of address.</td>
-        </tr>
-        <tr>
-            <td><code>setShippingName()</code><b>**</b></td>
-            <td style="text-align: center"><span><code>string</code></span></td>
-            <td>Set <b>ship_name</b> of address. <b>Required</b> if <code>shipping_method</code> is <b>YES</b>.</td>
-        </tr>
-        <tr>
-            <td><code>getShippingAddress1()</code></td>
-            <td style="text-align: center"></td>
-            <td>Get <b>ship_add1</b>.</td>
-        </tr>
-        <tr>
-            <td><code>setShippingAddress1()</code><b>**</b></td>
-            <td style="text-align: center"><span><code>string</code></span></td>
-            <td>Set <b>ship_add1</b>. <b>Required</b> if <code>shipping_method</code> is <b>YES</b>.</td>
-        </tr>
-        <tr>
-            <td><code>getShippingAddress2()</code></td>
-            <td style="text-align: center"></td>
-            <td>Get <b>ship_add2</b>.</td>
-        </tr>
-        <tr>
-            <td><code>setShippingAddress2()</code></td>
-            <td style="text-align: center"><span><code>string</code></span></td>
-            <td>Set <b>ship_add2</b>.</td>
-        </tr>
-        <tr>
-            <td><code>getShippingCity()</code></td>
-            <td style="text-align: center"></td>
-            <td>Get <b>ship_city</b>.</td>
-        </tr>
-        <tr>
-            <td><code>setShippingCity()</code><b>**</b></td>
-            <td style="text-align: center"><span><code>string</code></span></td>
-            <td>Set <b>ship_city</b>. <b>Required</b> if <code>shipping_method</code> is <b>YES</b>.</td>
-        </tr>
-        <tr>
-            <td><code>getShippingState()</code></td>
-            <td style="text-align: center"></td>
-            <td>Get <b>ship_state</b>.</td>
-        </tr>
-        <tr>
-            <td><code>setShippingState()</code></td>
-            <td style="text-align: center"><span><code>string</code></span></td>
-            <td>Set <b>ship_state</b>.</td>
-        </tr>
-        <tr>
-            <td><code>getShippingPostCode()</code></td>
-            <td style="text-align: center"></td>
-            <td>Get <b>ship_postcode</b>.</td>
-        </tr>
-        <tr>
-            <td><code>setShippingPostCode()</code><b>**</b></td>
-            <td style="text-align: center"><span><code>string</code></span></td>
-            <td>Set <b>ship_postcode</b>. <b>Required</b> if <code>shipping_method</code> is <b>YES</b>.</td>
-        </tr>
-        <tr>
-            <td><code>getShippingCountry()</code></td>
-            <td style="text-align: center"></td>
-            <td>Get <b>ship_country</b>.</td>
-        </tr>
-        <tr>
-            <td><code>setShippingCountry()</code><b>**</b></td>
-            <td style="text-align: center"><span><code>string</code></span></td>
-            <td>Set <b>ship_country</b>. <b>Required</b> if <code>shipping_method</code> is <b>YES</b>.</td>
-        </tr>
-        <tr>
-            <td><code>getEmiOption()</code></td>
-            <td style="text-align: center"></td>
-            <td>Get <b>emi_option</b>.</td>
-        </tr>
-        <tr>
-            <td><code>setEmiOption()</code><b>*</b></td>
-            <td style="text-align: center"><span><code>integer</code></span></td>
-            <td>Set <b>emi_option</b>. Value must be 1 or 0.</td>
-        </tr>
-        <tr>
-            <td><code>getEmiMaxInstOption()</code></td>
-            <td style="text-align: center"></td>
-            <td>Get <b>emi_max_inst_option</b>.</td>
-        </tr>
-        <tr>
-            <td><code>setEmiMaxInstOption()</code></td>
-            <td style="text-align: center"><span><code>integer</code></span></td>
-            <td>Set <b>emi_max_inst_option</b>.</td>
-        </tr>
-        <tr>
-            <td><code>getEmiSelectedInst()</code></td>
-            <td style="text-align: center"></td>
-            <td>Get <b>emi_selected_inst</b>.</td>
-        </tr>
-        <tr>
-            <td><code>setEmiSelectedInst()</code></td>
-            <td style="text-align: center"><span><code>integer</code></span></td>
-            <td>Set <b>emi_selected_inst</b>.</td>
-        </tr>
-        <tr>
-            <td><code>getEmiAllowOnly()</code></td>
-            <td style="text-align: center"></td>
-            <td>Get <b>emi_allow_only</b>.</td>
-        </tr>
-        <tr>
-            <td><code>setEmiAllowOnly()</code></td>
-            <td style="text-align: center"><span><code>integer</code></span></td>
-            <td>Set <b>emi_allow_only</b>. Value must be 1 or 0. This parameter depends on <b>emi_option</b> and <b>emi_selected_inst</b></td>
-        </tr>
-        <tr>
-            <td><code>getAdditionalValueA()</code></td>
-            <td style="text-align: center"></td>
-            <td>Get <b>value_a</b>.</td>
-        </tr>
-        <tr>
-            <td><code>setAdditionalValueA()</code></td>
-            <td style="text-align: center"><span><code>string</code></span></td>
-            <td>Set <b>value_a</b>.</td>
-        </tr>
-        <tr>
-            <td><code>getAdditionalValueB()</code></td>
-            <td style="text-align: center"></td>
-            <td>Get <b>value_b</b>.</td>
-        </tr>
-        <tr>
-            <td><code>setAdditionalValueB()</code></td>
-            <td style="text-align: center"><span><code>string</code></span></td>
-            <td>Set <b>value_b</b>.</td>
-        </tr>
-        <tr>
-            <td><code>getAdditionalValueC()</code></td>
-            <td style="text-align: center"></td>
-            <td>Get <b>value_c</b>.</td>
-        </tr>
-        <tr>
-            <td><code>setAdditionalValueC()</code></td>
-            <td style="text-align: center"><span><code>string</code></span></td>
-            <td>Set <b>value_c</b>.</td>
-        </tr>
-        <tr>
-            <td><code>getAdditionalValueD()</code></td>
-            <td style="text-align: center"></td>
-            <td>Get <b>value_d</b>.</td>
-        </tr>
-        <tr>
-            <td><code>setAdditionalValueD()</code></td>
-            <td style="text-align: center"><span><code>string</code></span></td>
-            <td>Set <b>value_d</b>.</td>
-        </tr>
+        </td>
+    </tr>
+    <tr>
+        <td><code>setAdditionalInformation()</code></td>
+        <td style="text-align: center"><span><code>array()</code></span></td>
+        <td>
+            Set additional information.
+            <br><br>
+            Optional parameter key elements:
+            <ul>
+                <li><b>value_a</b></li>
+                <li><b>value_b</b></li>
+                <li><b>value_c</b></li>
+                <li><b>value_d</b></li>
+            </ul>
+        </td>
+    </tr>
     </tbody>
 </table>
+
+##### Other getters and setters:
+<table>
+    <thead>
+    <tr>
+        <th>Method Name</th>
+        <th style="text-align: center">Param Info</th>
+        <th>Description</th>
+    </tr>
+    </thead>
+    <tbody>
+    <tr>
+        <td><code>getPaymentDisplayType()</code></td>
+        <td style="text-align: center"></td>
+        <td>Get payment display type.</td>
+    </tr>
+    <tr>
+        <td><code>setPaymentDisplayType()</code><b>*</b></td>
+        <td style="text-align: center"><span><code>enum('hosted', 'checkout')</code></span></td>
+        <td>Set payment display type. Default value is <b>checkout</b>.</td>
+    </tr>
+    <tr>
+        <td><code>getStoreId()</code></td>
+        <td style="text-align: center"></td>
+        <td>Get SSLCommerz <b>store_id</b>.</td>
+    </tr>
+    <tr>
+        <td><code>setStoreId()</code><b>*</b></td>
+        <td style="text-align: center"><span><code>string</code></span></td>
+        <td>Set SSLCommerz <b>store_id</b>. Default value sets by <code>STORE_ID</code> value.</td>
+    </tr>
+    <tr>
+        <td><code>getStorePassword()</code></td>
+        <td style="text-align: center"></td>
+        <td>Get SSLCommerz <b>store_passwd</b>.</td>
+    </tr>
+    <tr>
+        <td><code>setStorePassword()</code><b>*</b></td>
+        <td style="text-align: center"><span><code>string</code></span></td>
+        <td>Set SSLCommerz <b>store_passwd</b>. Default value sets by <code>STORE_PASSWORD</code> value.</td>
+    </tr>
+    <tr>
+        <td><code>getTotalAmount()</code></td>
+        <td style="text-align: center"></td>
+        <td>Get <b>total_amount</b> of transaction.</td>
+    </tr>
+    <tr>
+        <td><code>setTotalAmount()</code><b>*</b></td>
+        <td style="text-align: center"><span><code>decimal</code></span></td>
+        <td>Set <b>total_amount</b> of transaction. The transaction amount must be from <b>10.00 BDT</b> to <b>500000.00 BDT</b></td>
+    </tr>
+    <tr>
+        <td><code>getCurrency()</code></td>
+        <td style="text-align: center"></td>
+        <td>Get <b>currency</b> type. Example: BDT, USD, EUR, SGD, INR, MYR, etc</td>
+    </tr>
+    <tr>
+        <td><code>setCurrency()</code><b>*</b></td>
+        <td style="text-align: center"><span><code>string</code></span></td>
+        <td>Set <b>currency</b> type.</td>
+    </tr>
+    <tr>
+        <td><code>getTranId()</code></td>
+        <td style="text-align: center"></td>
+        <td>Get unique <b>tran_id</b> to identify order.</td>
+    </tr>
+    <tr>
+        <td><code>setTranId()</code><b>*</b></td>
+        <td style="text-align: center"><span><code>string</code></span></td>
+        <td>Set <b>tran_id</b> to unify your order.</td>
+    </tr>
+    <tr>
+        <td><code>getSuccessUrl()</code></td>
+        <td style="text-align: center"></td>
+        <td>Get callback <b>success_url</b>.</td>
+    </tr>
+    <tr>
+        <td><code>setSuccessUrl()</code><b>*</b></td>
+        <td style="text-align: center"><span><code>string</code></span></td>
+        <td>Set callback <b>success_url</b> where user will redirect after successful payment.</td>
+    </tr>
+    <tr>
+        <td><code>getFailUrl()</code></td>
+        <td style="text-align: center"></td>
+        <td>Get callback <b>fail_url</b>.</td>
+    </tr>
+    <tr>
+        <td><code>setFailUrl()</code><b>*</b></td>
+        <td style="text-align: center"><span><code>string</code></span></td>
+        <td>Set callback <b>fail_url</b> where user will redirect after any failure occurs during payment.</td>
+    </tr>
+    <tr>
+        <td><code>getCancelUrl()</code></td>
+        <td style="text-align: center"></td>
+        <td>Get callback <b>cancel_url</b>.</td>
+    </tr>
+    <tr>
+        <td><code>setCancelUrl()</code><b>*</b></td>
+        <td style="text-align: center"><span><code>string</code></span></td>
+        <td>Set callback <b>cancel_url</b> where user will redirect if user cancels the transaction.</td>
+    </tr>
+    <tr>
+        <td><code>getIpnUrl()</code></td>
+        <td style="text-align: center"></td>
+        <td>Get Instant Payment Notification <b>ipn_url</b>.</td>
+    </tr>
+    <tr>
+        <td><code>setIpnUrl()</code></td>
+        <td style="text-align: center"><span><code>string</code></span></td>
+        <td>Set <b>ipn_url</b>. Enable instant payment notification option so that SSLCommerz can send the transaction's status to ipn_url.</td>
+    </tr>
+    <tr>
+        <td><code>getMultiCardName()</code></td>
+        <td style="text-align: center"></td>
+        <td>Get <b>multi_card_name</b>.</td>
+    </tr>
+    <tr>
+        <td><code>setMultiCardName()</code></td>
+        <td style="text-align: center"><span><code>string</code></span></td>
+        <td>Set <b>multi_card_name</b>. Use it only if gateway list needs to be customized.</td>
+    </tr>
+    <tr>
+        <td><code>getAllowedBin()</code></td>
+        <td style="text-align: center"></td>
+        <td>Get <b>allowed_bin</b>.</td>
+    </tr>
+    <tr>
+        <td><code>setAllowedBin()</code></td>
+        <td style="text-align: center"><span><code>string</code></span></td>
+        <td>Set <b>allowed_bin</b>. Use it only if transaction needs to be controlled.</td>
+    </tr>
+    <tr>
+        <td><code>getCustomerName()</code></td>
+        <td style="text-align: center"></td>
+        <td>Get <b>cus_name</b>.</td>
+    </tr>
+    <tr>
+        <td><code>setCustomerName()</code><b>*</b></td>
+        <td style="text-align: center"><span><code>string</code></span></td>
+        <td>Set <b>cus_name</b>.</td>
+    </tr>
+    <tr>
+        <td><code>getCustomerEmail()</code></td>
+        <td style="text-align: center"></td>
+        <td>Get <b>cus_email</b>.</td>
+    </tr>
+    <tr>
+        <td><code>setCustomerEmail()</code><b>*</b></td>
+        <td style="text-align: center"><span><code>string</code></span></td>
+        <td>Set <b>cus_email</b>.</td>
+    </tr>
+    <tr>
+        <td><code>getCustomerAddress1()</code></td>
+        <td style="text-align: center"></td>
+        <td>Get <b>cus_add1</b>.</td>
+    </tr>
+    <tr>
+        <td><code>setCustomerAddress1()</code><b>*</b></td>
+        <td style="text-align: center"><span><code>string</code></span></td>
+        <td>Set <b>cus_add1</b>.</td>
+    </tr>
+    <tr>
+        <td><code>getCustomerAddress2()</code></td>
+        <td style="text-align: center"></td>
+        <td>Get <b>cus_add2</b>.</td>
+    </tr>
+    <tr>
+        <td><code>setCustomerAddress2()</code></td>
+        <td style="text-align: center"><span><code>string</code></span></td>
+        <td>Set <b>cus_add2</b>.</td>
+    </tr>
+    <tr>
+        <td><code>getCustomerCity()</code></td>
+        <td style="text-align: center"></td>
+        <td>Get <b>cus_city</b>.</td>
+    </tr>
+    <tr>
+        <td><code>setCustomerCity()</code><b>*</b></td>
+        <td style="text-align: center"><span><code>string</code></span></td>
+        <td>Set <b>cus_city</b>.</td>
+    </tr>
+    <tr>
+        <td><code>getCustomerState()</code></td>
+        <td style="text-align: center"></td>
+        <td>Get <b>cus_state</b>.</td>
+    </tr>
+    <tr>
+        <td><code>setCustomerState()</code></td>
+        <td style="text-align: center"><span><code>string</code></span></td>
+        <td>Set <b>cus_state</b>.</td>
+    </tr>
+    <tr>
+        <td><code>getCustomerPostCode()</code></td>
+        <td style="text-align: center"></td>
+        <td>Get <b>cus_postcode</b>.</td>
+    </tr>
+    <tr>
+        <td><code>setCustomerPostCode()</code><b>*</b></td>
+        <td style="text-align: center"><span><code>string</code></span></td>
+        <td>Set <b>cus_postcode</b>.</td>
+    </tr>
+    <tr>
+        <td><code>getCustomerCountry()</code></td>
+        <td style="text-align: center"></td>
+        <td>Get <b>cus_country</b>.</td>
+    </tr>
+    <tr>
+        <td><code>setCustomerCountry()</code><b>*</b></td>
+        <td style="text-align: center"><span><code>string</code></span></td>
+        <td>Set <b>cus_country</b>.</td>
+    </tr>
+    <tr>
+        <td><code>getCustomerPhone()</code></td>
+        <td style="text-align: center"></td>
+        <td>Get <b>cus_phone</b>.</td>
+    </tr>
+    <tr>
+        <td><code>setCustomerPhone()</code><b>*</b></td>
+        <td style="text-align: center"><span><code>string</code></span></td>
+        <td>Set <b>cus_phone</b>.</td>
+    </tr>
+    <tr>
+        <td><code>getCustomerFax()</code></td>
+        <td style="text-align: center"></td>
+        <td>Get <b>cus_fax</b>.</td>
+    </tr>
+    <tr>
+        <td><code>setCustomerFax()</code></td>
+        <td style="text-align: center"><span><code>string</code></span></td>
+        <td>Set <b>cus_fax</b>.</td>
+    </tr>
+    <tr>
+        <td><code>getProductName()</code></td>
+        <td style="text-align: center"></td>
+        <td>Get <b>product_name</b>.</td>
+    </tr>
+    <tr>
+        <td><code>setProductName()</code><b>*</b></td>
+        <td style="text-align: center"><span><code>string</code></span></td>
+        <td>Set <b>product_name</b>.</td>
+    </tr>
+    <tr>
+        <td><code>getProductCategory()</code></td>
+        <td style="text-align: center"></td>
+        <td>Get <b>product_category</b>.</td>
+    </tr>
+    <tr>
+        <td><code>setProductCategory()</code><b>*</b></td>
+        <td style="text-align: center"><span><code>string</code></span></td>
+        <td>Set <b>product_category</b>.</td>
+    </tr>
+    <tr>
+        <td><code>getProductProfile()</code></td>
+        <td style="text-align: center"></td>
+        <td>Get <b>product_profile</b>.</td>
+    </tr>
+    <tr>
+        <td><code>setProductProfile()</code><b>*</b></td>
+        <td style="text-align: center"><span><code>string</code></span></td>
+        <td>Set <b>product_profile</b>.
+            <br><br>Available keys:
+            <ol>
+                <li>general</li>
+                <li>physical-goods</li>
+                <li>non-physical-goods</li>
+                <li>airline-tickets</li>
+                <li>travel-vertical</li>
+                <li>telecom-vertical</li>
+            </ol>
+        </td>
+    </tr>
+    <tr>
+        <td><code>getProductHoursTillDeparture()</code></td>
+        <td style="text-align: center"></td>
+        <td>Get <b>hours_till_departure</b>.</td>
+    </tr>
+    <tr>
+        <td><code>setProductHoursTillDeparture()</code><b>**</b></td>
+        <td style="text-align: center"><span><code>string</code></span></td>
+        <td>Set <b>hours_till_departure</b>. <b>Required</b> if <code>product_profile</code> is <b>airline-tickets</b>.</td>
+    </tr>
+    <tr>
+        <td><code>getProductFlightType()</code></td>
+        <td style="text-align: center"></td>
+        <td>Get <b>flight_type</b>.</td>
+    </tr>
+    <tr>
+        <td><code>setProductFlightType()</code><b>**</b></td>
+        <td style="text-align: center"><span><code>string</code></span></td>
+        <td>Set <b>flight_type</b>. <b>Required</b> if <code>product_profile</code> is <b>airline-tickets</b>.</td>
+    </tr>
+    <tr>
+        <td><code>getProductPnr()</code></td>
+        <td style="text-align: center"></td>
+        <td>Get <b>pnr</b>.</td>
+    </tr>
+    <tr>
+        <td><code>setProductPnr()</code><b>**</b></td>
+        <td style="text-align: center"><span><code>string</code></span></td>
+        <td>Set <b>pnr</b>. <b>Required</b> if <code>product_profile</code> is <b>airline-tickets</b>.</td>
+    </tr>
+    <tr>
+        <td><code>getProductJourneyFromTo()</code></td>
+        <td style="text-align: center"></td>
+        <td>Get <b>journey_from_to</b>.</td>
+    </tr>
+    <tr>
+        <td><code>setProductJourneyFromTo()</code><b>**</b></td>
+        <td style="text-align: center"><span><code>string</code></span></td>
+        <td>Set <b>journey_from_to</b>. <b>Required</b> if <code>product_profile</code> is <b>airline-tickets</b>.</td>
+    </tr>
+    <tr>
+        <td><code>getProductThirdPartyBooking()</code></td>
+        <td style="text-align: center"></td>
+        <td>Get <b>third_party_booking</b>.</td>
+    </tr>
+    <tr>
+        <td><code>setProductThirdPartyBooking()</code><b>**</b></td>
+        <td style="text-align: center"><span><code>string</code></span></td>
+        <td>Set <b>third_party_booking</b>. <b>Required</b> if <code>product_profile</code> is <b>airline-tickets</b>.</td>
+    </tr>
+    <tr>
+        <td><code>getProductHotelName()</code></td>
+        <td style="text-align: center"></td>
+        <td>Get <b>hotel_name</b>.</td>
+    </tr>
+    <tr>
+        <td><code>setProductHotelName()</code><b>**</b></td>
+        <td style="text-align: center"><span><code>string</code></span></td>
+        <td>Set <b>hotel_name</b>. <b>Required</b> if <code>product_profile</code> is <b>travel-vertical</b>.</td>
+    </tr>
+    <tr>
+        <td><code>getProductLengthOfStay()</code></td>
+        <td style="text-align: center"></td>
+        <td>Get <b>length_of_stay</b>.</td>
+    </tr>
+    <tr>
+        <td><code>setProductLengthOfStay()</code><b>**</b></td>
+        <td style="text-align: center"><span><code>string</code></span></td>
+        <td>Set <b>length_of_stay</b>. <b>Required</b> if <code>product_profile</code> is <b>travel-vertical</b>.</td>
+    </tr>
+    <tr>
+        <td><code>getProductCheckInTime()</code></td>
+        <td style="text-align: center"></td>
+        <td>Get <b>check_in_time</b>.</td>
+    </tr>
+    <tr>
+        <td><code>setProductCheckInTime()</code><b>**</b></td>
+        <td style="text-align: center"><span><code>string</code></span></td>
+        <td>Set <b>check_in_time</b>. <b>Required</b> if <code>product_profile</code> is <b>travel-vertical</b>.</td>
+    </tr>
+    <tr>
+        <td><code>getProductHotelCity()</code></td>
+        <td style="text-align: center"></td>
+        <td>Get <b>hotel_city</b>.</td>
+    </tr>
+    <tr>
+        <td><code>setProductHotelCity()</code><b>**</b></td>
+        <td style="text-align: center"><span><code>string</code></span></td>
+        <td>Set <b>hotel_city</b>. <b>Required</b> if <code>product_profile</code> is <b>travel-vertical</b>.</td>
+    </tr>
+    <tr>
+        <td><code>getProductType()</code></td>
+        <td style="text-align: center"></td>
+        <td>Get <b>product_type</b>.</td>
+    </tr>
+    <tr>
+        <td><code>setProductType()</code><b>**</b></td>
+        <td style="text-align: center"><span><code>string</code></span></td>
+        <td>Set <b>product_type</b>. <b>Required</b> if <code>product_profile</code> is <b>telecom-vertical</b>.</td>
+    </tr>
+    <tr>
+        <td><code>getProductTopUpNumber()</code></td>
+        <td style="text-align: center"></td>
+        <td>Get <b>topup_number</b>.</td>
+    </tr>
+    <tr>
+        <td><code>setProductTopUpNumber()</code><b>**</b></td>
+        <td style="text-align: center"><span><code>string</code></span></td>
+        <td>Set <b>topup_number</b>. <b>Required</b> if <code>product_profile</code> is <b>telecom-vertical</b>.</td>
+    </tr>
+    <tr>
+        <td><code>getProductCountryTopUp()</code></td>
+        <td style="text-align: center"></td>
+        <td>Get <b>country_topup</b>.</td>
+    </tr>
+    <tr>
+        <td><code>setProductCountryTopUp()</code><b>**</b></td>
+        <td style="text-align: center"><span><code>string</code></span></td>
+        <td>Set <b>country_topup</b>. <b>Required</b> if <code>product_profile</code> is <b>telecom-vertical</b>.</td>
+    </tr>
+    <tr>
+        <td><code>getCart()</code></td>
+        <td style="text-align: center"></td>
+        <td>Get <b>cart</b>.</td>
+    </tr>
+    <tr>
+        <td><code>setCart()</code></td>
+        <td style="text-align: center"><span><code>json</code></span></td>
+        <td>Set <b>cart</b>. JSON data with two elements. <b>product</b>: Max 255 characters, <b>quantity</b>: Quantity in numeric value and <b>amount</b>: Decimal (12,2).<br><br>Example:<br><code>[{"product":"DHK TO BRS AC A1","quantity":"1","amount":"200.00"},{"product":"DHK TO BRS AC A2","quantity":"1","amount":"200.00"},{"product":"DHK TO BRS AC A3","quantity":"1","amount":"200.00"},{"product":"DHK TO BRS AC A4","quantity":"2","amount":"200.00"}]</code></td>
+    </tr>
+    <tr>
+        <td><code>getProductAmount()</code></td>
+        <td style="text-align: center"></td>
+        <td>Get <b>product_amount</b>.</td>
+    </tr>
+    <tr>
+        <td><code>setProductAmount()</code></td>
+        <td style="text-align: center"><span><code>decimal</code></span></td>
+        <td>Set <b>product_amount</b>.</td>
+    </tr>
+    <tr>
+        <td><code>getVat()</code></td>
+        <td style="text-align: center"></td>
+        <td>Get <b>vat</b>.</td>
+    </tr>
+    <tr>
+        <td><code>setVat()</code></td>
+        <td style="text-align: center"><span><code>decimal</code></span></td>
+        <td>Set <b>vat</b>.</td>
+    </tr>
+    <tr>
+        <td><code>getDiscountAmount()</code></td>
+        <td style="text-align: center"></td>
+        <td>Get <b>discount_amount</b>.</td>
+    </tr>
+    <tr>
+        <td><code>setDiscountAmount()</code></td>
+        <td style="text-align: center"><span><code>decimal</code></span></td>
+        <td>Set <b>discount_amount</b>.</td>
+    </tr>
+    <tr>
+        <td><code>getConvenienceFee()</code></td>
+        <td style="text-align: center"></td>
+        <td>Get <b>convenience_fee</b>.</td>
+    </tr>
+    <tr>
+        <td><code>setConvenienceFee()</code></td>
+        <td style="text-align: center"><span><code>decimal</code></span></td>
+        <td>Set <b>convenience_fee</b>.</td>
+    </tr>
+    <tr>
+        <td><code>getShippingMethod()</code></td>
+        <td style="text-align: center"></td>
+        <td>Get <b>shipping_method</b> of the order.</td>
+    </tr>
+    <tr>
+        <td><code>setShippingMethod()</code><b>*</b></td>
+        <td style="text-align: center"><span><code>string</code></span></td>
+        <td>Set <b>shipping_method</b> of the order. Example: YES or NO or Courier.</td>
+    </tr>
+    <tr>
+        <td><code>getShippingItemNumber()</code></td>
+        <td style="text-align: center"></td>
+        <td>Get <b>num_of_item</b> of product.</td>
+    </tr>
+    <tr>
+        <td><code>setShippingItemNumber()</code><b>*</b></td>
+        <td style="text-align: center"><span><code>integer</code></span></td>
+        <td>Set <b>num_of_item</b> of product will be shipped.</td>
+    </tr>
+    <tr>
+        <td><code>getShippingName()</code></td>
+        <td style="text-align: center"></td>
+        <td>Get <b>ship_name</b> of address.</td>
+    </tr>
+    <tr>
+        <td><code>setShippingName()</code><b>**</b></td>
+        <td style="text-align: center"><span><code>string</code></span></td>
+        <td>Set <b>ship_name</b> of address. <b>Required</b> if <code>shipping_method</code> is <b>YES</b>.</td>
+    </tr>
+    <tr>
+        <td><code>getShippingAddress1()</code></td>
+        <td style="text-align: center"></td>
+        <td>Get <b>ship_add1</b>.</td>
+    </tr>
+    <tr>
+        <td><code>setShippingAddress1()</code><b>**</b></td>
+        <td style="text-align: center"><span><code>string</code></span></td>
+        <td>Set <b>ship_add1</b>. <b>Required</b> if <code>shipping_method</code> is <b>YES</b>.</td>
+    </tr>
+    <tr>
+        <td><code>getShippingAddress2()</code></td>
+        <td style="text-align: center"></td>
+        <td>Get <b>ship_add2</b>.</td>
+    </tr>
+    <tr>
+        <td><code>setShippingAddress2()</code></td>
+        <td style="text-align: center"><span><code>string</code></span></td>
+        <td>Set <b>ship_add2</b>.</td>
+    </tr>
+    <tr>
+        <td><code>getShippingCity()</code></td>
+        <td style="text-align: center"></td>
+        <td>Get <b>ship_city</b>.</td>
+    </tr>
+    <tr>
+        <td><code>setShippingCity()</code><b>**</b></td>
+        <td style="text-align: center"><span><code>string</code></span></td>
+        <td>Set <b>ship_city</b>. <b>Required</b> if <code>shipping_method</code> is <b>YES</b>.</td>
+    </tr>
+    <tr>
+        <td><code>getShippingState()</code></td>
+        <td style="text-align: center"></td>
+        <td>Get <b>ship_state</b>.</td>
+    </tr>
+    <tr>
+        <td><code>setShippingState()</code></td>
+        <td style="text-align: center"><span><code>string</code></span></td>
+        <td>Set <b>ship_state</b>.</td>
+    </tr>
+    <tr>
+        <td><code>getShippingPostCode()</code></td>
+        <td style="text-align: center"></td>
+        <td>Get <b>ship_postcode</b>.</td>
+    </tr>
+    <tr>
+        <td><code>setShippingPostCode()</code><b>**</b></td>
+        <td style="text-align: center"><span><code>string</code></span></td>
+        <td>Set <b>ship_postcode</b>. <b>Required</b> if <code>shipping_method</code> is <b>YES</b>.</td>
+    </tr>
+    <tr>
+        <td><code>getShippingCountry()</code></td>
+        <td style="text-align: center"></td>
+        <td>Get <b>ship_country</b>.</td>
+    </tr>
+    <tr>
+        <td><code>setShippingCountry()</code><b>**</b></td>
+        <td style="text-align: center"><span><code>string</code></span></td>
+        <td>Set <b>ship_country</b>. <b>Required</b> if <code>shipping_method</code> is <b>YES</b>.</td>
+    </tr>
+    <tr>
+        <td><code>getEmiOption()</code></td>
+        <td style="text-align: center"></td>
+        <td>Get <b>emi_option</b>.</td>
+    </tr>
+    <tr>
+        <td><code>setEmiOption()</code><b>*</b></td>
+        <td style="text-align: center"><span><code>integer</code></span></td>
+        <td>Set <b>emi_option</b>. Value must be 1 or 0.</td>
+    </tr>
+    <tr>
+        <td><code>getEmiMaxInstOption()</code></td>
+        <td style="text-align: center"></td>
+        <td>Get <b>emi_max_inst_option</b>.</td>
+    </tr>
+    <tr>
+        <td><code>setEmiMaxInstOption()</code></td>
+        <td style="text-align: center"><span><code>integer</code></span></td>
+        <td>Set <b>emi_max_inst_option</b>.</td>
+    </tr>
+    <tr>
+        <td><code>getEmiSelectedInst()</code></td>
+        <td style="text-align: center"></td>
+        <td>Get <b>emi_selected_inst</b>.</td>
+    </tr>
+    <tr>
+        <td><code>setEmiSelectedInst()</code></td>
+        <td style="text-align: center"><span><code>integer</code></span></td>
+        <td>Set <b>emi_selected_inst</b>.</td>
+    </tr>
+    <tr>
+        <td><code>getEmiAllowOnly()</code></td>
+        <td style="text-align: center"></td>
+        <td>Get <b>emi_allow_only</b>.</td>
+    </tr>
+    <tr>
+        <td><code>setEmiAllowOnly()</code></td>
+        <td style="text-align: center"><span><code>integer</code></span></td>
+        <td>Set <b>emi_allow_only</b>. Value must be 1 or 0. This parameter depends on <b>emi_option</b> and <b>emi_selected_inst</b></td>
+    </tr>
+    <tr>
+        <td><code>getAdditionalValueA()</code></td>
+        <td style="text-align: center"></td>
+        <td>Get <b>value_a</b>.</td>
+    </tr>
+    <tr>
+        <td><code>setAdditionalValueA()</code></td>
+        <td style="text-align: center"><span><code>string</code></span></td>
+        <td>Set <b>value_a</b>.</td>
+    </tr>
+    <tr>
+        <td><code>getAdditionalValueB()</code></td>
+        <td style="text-align: center"></td>
+        <td>Get <b>value_b</b>.</td>
+    </tr>
+    <tr>
+        <td><code>setAdditionalValueB()</code></td>
+        <td style="text-align: center"><span><code>string</code></span></td>
+        <td>Set <b>value_b</b>.</td>
+    </tr>
+    <tr>
+        <td><code>getAdditionalValueC()</code></td>
+        <td style="text-align: center"></td>
+        <td>Get <b>value_c</b>.</td>
+    </tr>
+    <tr>
+        <td><code>setAdditionalValueC()</code></td>
+        <td style="text-align: center"><span><code>string</code></span></td>
+        <td>Set <b>value_c</b>.</td>
+    </tr>
+    <tr>
+        <td><code>getAdditionalValueD()</code></td>
+        <td style="text-align: center"></td>
+        <td>Get <b>value_d</b>.</td>
+    </tr>
+    <tr>
+        <td><code>setAdditionalValueD()</code></td>
+        <td style="text-align: center"><span><code>string</code></span></td>
+        <td>Set <b>value_d</b>.</td>
+    </tr>
+    </tbody>
+</table>
+
 
 `*` = **Required** and `**` = **Dependently Required**.
 
