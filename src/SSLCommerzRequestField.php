@@ -45,6 +45,7 @@ trait SSLCommerzRequestField
             'ipn_url', // Important! Not mandatory, however better to use to avoid missing any payment notification
             'multi_card_name', // Do not Use! If you do not customize the gateway lis
             'allowed_bin', // Do not Use! If you do not control on transaction
+            'payment_channel',
         ],
         'emi' => [
             'emi_max_inst_option',
